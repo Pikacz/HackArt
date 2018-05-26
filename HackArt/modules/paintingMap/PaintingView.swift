@@ -12,7 +12,7 @@ class PaintingView: BasicView {
   override func initialize() {
     super.initialize()
     
-    backgroundColor = UIColor.blue
+    backgroundColor = UIColor.black
 
     layer.addSublayer(paintingLayer)
     paintingLayer.frame = layer.bounds
@@ -41,9 +41,9 @@ class PaintingView: BasicView {
   
   @objc private func hmm(tap: UITapGestureRecognizer) {
     let point: CGPoint = tap.location(in: self)
-    print("\(point.x), \(point.y)")
+    
     if paintingLayer.didHit(id: 1, point: point) {
-      print("ooo")
+      print("klikłem sierp bro")
     }
     
   }
@@ -53,21 +53,38 @@ class PaintingView: BasicView {
 class PaintingLayer: BasicLayer {
   private var imageLayer: CALayer = CALayer()
   
-  private var highlightAreas: [Int: CALayer] = [:] {
+  
+  private var toMask: [CALayer] = [] {
+    willSet {
+      for tm in toMask {
+        tm.removeFromSuperlayer()
+      }
+    }
+    didSet {
+      for tm in toMask {
+        addSublayer(tm)
+      }
+    }
+  }
+  private var highlightAreas: [Int: CAShapeLayer] = [:] {
     willSet {
       for (_, layer) in highlightAreas {
         layer.removeFromSuperlayer()
       }
     }
     didSet {
+      toMask = (0..<highlightAreas.count).map { (_: Int) -> CALayer in return self.createImage() }
+      var i = 0
       for (_, layer) in highlightAreas {
-        addSublayer(layer)
+//        addSublayer(layer)
+        toMask[i].mask = layer
+        i += 1
       }
       setNeedsLayout()
     }
   }
   
-  private var hitAreas: [Int: CALayer] = [:] {
+  private var hitAreas: [Int: CAShapeLayer] = [:] {
     willSet {
       for (_, layer) in hitAreas {
         layer.removeFromSuperlayer()
@@ -84,7 +101,7 @@ class PaintingLayer: BasicLayer {
   
   private var painting: Painting! {
     didSet {
-      var highlight: [Int: CALayer] = [:]
+      var highlight: [Int: CAShapeLayer] = [:]
       for (id, path) in painting.highlightPaths {
         let layer: CAShapeLayer = CAShapeLayer()
         layer.path = path.cgPath
@@ -94,7 +111,7 @@ class PaintingLayer: BasicLayer {
       }
       self.highlightAreas = highlight
       
-      var hit: [Int: CALayer] = [:]
+      var hit: [Int: CAShapeLayer] = [:]
       for (id, path) in painting.hitPaths {
         let layer: CAShapeLayer = CAShapeLayer()
         layer.path = path.cgPath
@@ -108,22 +125,28 @@ class PaintingLayer: BasicLayer {
     }
   }
   
+  private let cokolwiek: CALayer = CALayer()
+  
   
   override func initialize() {
     super.initialize()
     addSublayer(imageLayer)
     imageLayer.masksToBounds = true
     imageLayer.contentsScale = UIScreen.main.scale
+    
   }
   
   override func layoutSublayers() {
     super.layoutSublayers()
     guard painting != nil else { return }
+    let imgFrame: CGRect = imageFrame()
+    for tm in toMask {
+      tm.frame = imgFrame
+    }
     
     let scaleTransform: CATransform3D = getScaleTransform(frame: painting.framePath)
     for (id, path) in painting.highlightPaths {
       highlightAreas[id]?.transform = CATransform3DConcat(scaleTransform, path.transform)
-      highlightAreas[id]?.masksToBounds = true
     }
     
     for (id, path) in painting.hitPaths {
@@ -154,7 +177,13 @@ class PaintingLayer: BasicLayer {
   
   
   func didHit(id: Int, point: CGPoint) -> Bool {
-    return highlightAreas[id]?.hitTest(point) != nil
+    if let layer: CALayer = hitAreas[id] {
+      let affineTransform: CGAffineTransform = CATransform3DGetAffineTransform(layer.transform)
+      let point = point.applying(affineTransform.inverted())
+      
+            return hitAreas[id]?.path?.contains(point) == true
+    }
+    return false
   }
   
   
@@ -185,6 +214,17 @@ class PaintingLayer: BasicLayer {
 
     
     return CATransform3DScale(translate, scale, scale, CGFloat(0.0))
+  }
+  
+  private func createImage() -> CALayer {
+    let result: CALayer = CALayer()
+    result.contentsScale = UIScreen.main.scale
+    result.contents = #imageLiteral(resourceName: "god").cgImage
+    return result
+  }
+  
+  private func imageFrame() -> CGRect {
+    return bounds
   }
 }
 
