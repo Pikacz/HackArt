@@ -14,9 +14,19 @@ import Vision
 
 final class ViewController: UIViewController {
     
+    let images: [OriginPainting] = OriginPainting.create()
+    
     private lazy var selectButton: UIButton = {
         let button = UIButton()
         button.setTitle("Select image", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.gray, for: .highlighted)
+        return button
+    }()
+    
+    private lazy var tagButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Find TAG", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.setTitleColor(.gray, for: .highlighted)
         return button
@@ -52,11 +62,13 @@ final class ViewController: UIViewController {
     
     private func setupControls() {
         view.addSubview(selectButton)
+        view.addSubview(tagButton)
         view.addSubview(imageView)
         view.addSubview(resultLabel)
         view.addSubview(loadingIndicator)
         
         selectButton.addTarget(self, action: #selector(selectedButtonTouched), for: .touchUpInside)
+        tagButton.addTarget(self, action: #selector(openTagFinder), for: .touchUpInside)
         
         NSLayoutConstraint.on(constraints: [
             imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
@@ -69,6 +81,8 @@ final class ViewController: UIViewController {
             
             selectButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             selectButton.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 20),
+            tagButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            tagButton.topAnchor.constraint(equalTo: selectButton.bottomAnchor, constant: 20),
             
             loadingIndicator.leftAnchor.constraint(equalTo: selectButton.rightAnchor, constant: 10),
             loadingIndicator.centerYAnchor.constraint(equalTo: selectButton.centerYAnchor)
@@ -79,11 +93,22 @@ final class ViewController: UIViewController {
         showPicker()
     }
     
+    @objc private func openTagFinder() {
+        let vc = CameraViewController(nibName: nil, bundle: nil)
+        vc.flow = self
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     private func showPicker() {
         let controller = UIImagePickerController()
         controller.sourceType = .camera
         controller.delegate = self
         present(controller, animated: true, completion: nil)
+    }
+    
+    private func set(image: OriginPainting?) {
+        resultLabel.text = (image?.identifier ?? "") + "\n" + (image?.description ?? "")
+        imageView.image = image?.image
     }
     
     private func detect(image: UIImage) throws {
@@ -99,7 +124,9 @@ final class ViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
-                self?.resultLabel.text = topResult.identifier + " (confidence \(topResult.confidence * 100)%)"
+                var image = self?.images.first(where: { $0.identifier == topResult.identifier })
+                self?.set(image: image)
+                //self?.resultLabel.text = topResult.identifier + " (confidence \(topResult.confidence * 100)%)"
                 self?.loadingIndicator.stopAnimating()
             }
         })
@@ -122,8 +149,17 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
         }
         
         picker.dismiss(animated: true, completion: nil)
-        imageView.image = image
+//        imageView.image = image
         try? detect(image: image)
     }
+}
+
+extension ViewController: CameraViewControllerFlow {
+    
+    func didFound(tag: Tag) {
+        let image = images.first(where: { $0.tags.contains(tag) })
+        set(image: image)
+    }
+    
 }
 

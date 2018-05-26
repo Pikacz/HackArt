@@ -1,6 +1,5 @@
 import UIKit
 
-
 class PaintingViewController: BasicViewController {
   @IBOutlet private weak var paintingView: PaintingView!
   

@@ -22,6 +22,12 @@
 		86EB118FB09CFD2BBFDC4EBE /* Pods_HackArt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7B366F9E2EA8DDCCDC8E83 /* Pods_HackArt.framework */; };
 		9E9A018920B99E9700475D5C /* TuriCreate.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A018820B99E9700475D5C /* TuriCreate.mlmodel */; };
 		9E9A018E20B99FDD00475D5C /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A018D20B99FDD00475D5C /* Constraints.swift */; };
+		9E9A019220B9CA8F00475D5C /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A019120B9CA8F00475D5C /* Camera.swift */; };
+		9E9A019420B9CACF00475D5C /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A019320B9CACF00475D5C /* CameraView.swift */; };
+		9E9A019620B9CE0400475D5C /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A019520B9CE0400475D5C /* CameraViewController.swift */; };
+		9E9A019920B9CF9500475D5C /* OriginPainting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A019820B9CF9500475D5C /* OriginPainting.swift */; };
+		9E9A019B20B9D0CE00475D5C /* 0017.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E9A019A20B9D0CE00475D5C /* 0017.jpg */; };
+		9E9A019D20B9DB3C00475D5C /* CameraOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A019C20B9DB3C00475D5C /* CameraOrientation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +48,12 @@
 		9085B6C34E7D0B44B7F81048 /* Pods-HackArt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackArt.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackArt/Pods-HackArt.release.xcconfig"; sourceTree = "<group>"; };
 		9E9A018820B99E9700475D5C /* TuriCreate.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TuriCreate.mlmodel; sourceTree = "<group>"; };
 		9E9A018D20B99FDD00475D5C /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		9E9A019120B9CA8F00475D5C /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		9E9A019320B9CACF00475D5C /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		9E9A019520B9CE0400475D5C /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		9E9A019820B9CF9500475D5C /* OriginPainting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginPainting.swift; sourceTree = "<group>"; };
+		9E9A019A20B9D0CE00475D5C /* 0017.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0017.jpg; sourceTree = "<group>"; };
+		9E9A019C20B9DB3C00475D5C /* CameraOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraOrientation.swift; sourceTree = "<group>"; };
 		BF7B366F9E2EA8DDCCDC8E83 /* Pods_HackArt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackArt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CB88884DA031ED4E64D4B4 /* Pods-HackArt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackArt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackArt/Pods-HackArt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +160,8 @@
 		341702D920B95016000C246C /* HackArt */ = {
 			isa = PBXGroup;
 			children = (
+				9E9A019720B9CF7500475D5C /* Models */,
+				9E9A019020B9CA6D00475D5C /* CameraDetection */,
 				9E9A018F20B99FE000475D5C /* Extensions */,
 				9E9A018520B99E6F00475D5C /* MLModel */,
 				341702DA20B95016000C246C /* AppDelegate.swift */,
@@ -159,6 +173,7 @@
 				341702E120B95017000C246C /* Assets.xcassets */,
 				341702E320B95017000C246C /* LaunchScreen.storyboard */,
 				341702E620B95017000C246C /* Info.plist */,
+				9E9A019A20B9D0CE00475D5C /* 0017.jpg */,
 			);
 			path = HackArt;
 			sourceTree = "<group>";
@@ -177,6 +192,25 @@
 				9E9A018D20B99FDD00475D5C /* Constraints.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9E9A019020B9CA6D00475D5C /* CameraDetection */ = {
+			isa = PBXGroup;
+			children = (
+				9E9A019120B9CA8F00475D5C /* Camera.swift */,
+				9E9A019320B9CACF00475D5C /* CameraView.swift */,
+				9E9A019520B9CE0400475D5C /* CameraViewController.swift */,
+				9E9A019C20B9DB3C00475D5C /* CameraOrientation.swift */,
+			);
+			path = CameraDetection;
+			sourceTree = "<group>";
+		};
+		9E9A019720B9CF7500475D5C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9E9A019820B9CF9500475D5C /* OriginPainting.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +278,7 @@
 				341702E520B95017000C246C /* LaunchScreen.storyboard in Resources */,
 				341702E220B95017000C246C /* Assets.xcassets in Resources */,
 				341702E020B95016000C246C /* Main.storyboard in Resources */,
+				9E9A019B20B9D0CE00475D5C /* 0017.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,15 +328,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E9A019920B9CF9500475D5C /* OriginPainting.swift in Sources */,
 				340CC67E20B9B582001FF0E0 /* PaintingViewController.swift in Sources */,
 				341702DD20B95016000C246C /* ViewController.swift in Sources */,
 				340CC67A20B9B582001FF0E0 /* BasicViews.swift in Sources */,
 				340CC67920B9B582001FF0E0 /* BasicLayers.swift in Sources */,
 				9E9A018E20B99FDD00475D5C /* Constraints.swift in Sources */,
+				9E9A019620B9CE0400475D5C /* CameraViewController.swift in Sources */,
 				9E9A018920B99E9700475D5C /* TuriCreate.mlmodel in Sources */,
+				9E9A019220B9CA8F00475D5C /* Camera.swift in Sources */,
+				9E9A019420B9CACF00475D5C /* CameraView.swift in Sources */,
 				340CC67F20B9B582001FF0E0 /* PaintingView.swift in Sources */,
 				341702DB20B95016000C246C /* AppDelegate.swift in Sources */,
 				340CC67B20B9B582001FF0E0 /* BasicViewController.swift in Sources */,
+				9E9A019D20B9DB3C00475D5C /* CameraOrientation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,14 +487,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GU34X5QPPY;
+				DEVELOPMENT_TEAM = CB989UTT6M;
 				INFOPLIST_FILE = HackArt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "pl.borocode.HackArt-PC";
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.borocode.HackArt-PC-MO";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -467,14 +507,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GU34X5QPPY;
+				DEVELOPMENT_TEAM = CB989UTT6M;
 				INFOPLIST_FILE = HackArt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "pl.borocode.HackArt-PC";
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.borocode.HackArt-PC-MO";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
