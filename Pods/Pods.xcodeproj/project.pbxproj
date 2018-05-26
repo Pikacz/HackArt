@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0932CFC3DE6AC3A811D2751EA1DC6D31 /* SVGLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 842850A029B86D398979586D2105FCEF /* SVGLayer.m */; };
+		1157CD9F835FCFECC75883A61993B44F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F9A0E952988935C32EDDB1429D7133 /* Foundation.framework */; };
 		1DDFA23242F0E540263691132486FEC7 /* Pods-HackArt-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C937E54AC15D3448215C05F5E6C774 /* Pods-HackArt-dummy.m */; };
+		2215C0EE517BBFD5D783C467242DDE25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F9A0E952988935C32EDDB1429D7133 /* Foundation.framework */; };
 		2F56C847BFBF1BE631A9C517DE41BD32 /* SVGLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E0FD070821F9B3D8C09A6854D63A386 /* SVGLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		38F58A90F9C1E0EB12E3F3DE0CEB6FBA /* PocketSVG-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E70B60E20D73FF34B5A794A8AEA3A8 /* PocketSVG-dummy.m */; };
 		66A6E19D8C7B9EAE594C13E775B07126 /* PocketSVG-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 09E010466D466B72998A0036437EAF9B /* PocketSVG-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -17,11 +19,9 @@
 		7D5515C36513B94ED7ACD5FA8A8295EE /* SVGColors.plist in Sources */ = {isa = PBXBuildFile; fileRef = ADEFC799EA6C3EA2747134D408982931 /* SVGColors.plist */; };
 		80620279FB00F11B30CFED1B87D1A648 /* SVGPortability.h in Headers */ = {isa = PBXBuildFile; fileRef = A53AE9245961C32DCADFD620F1B22FD1 /* SVGPortability.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		938D8513F8737718015628EA2D2E5ECE /* SVGEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 823A53CFF33BC6A5C6A6A1912E79AC45 /* SVGEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A60955556132E900103C6108A3F1A325 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F9310556BBE996AE628441592FB1181 /* Foundation.framework */; };
 		B57A580F8B89756D5843D5FC54F7C528 /* Pods-HackArt-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 437E58BA0328C6BEBCC3A267C0187C4B /* Pods-HackArt-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B952BD736C0BA826C07593AC532B7337 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CF13BCB9D36F1319E01CAB18FE2FBA7 /* QuartzCore.framework */; };
+		D1D5940CE03B6B1572FB0F71B271DA06 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2770B482BFE91273C8560623F1422C /* QuartzCore.framework */; };
 		DCCA621C2680DBFB5600C3C8BB2B28AB /* SVGBezierPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E7F69A156C7185BF7A4710873BE9884 /* SVGBezierPath.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EADE6F19CD4069F4E3CC833F70A43F98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F9310556BBE996AE628441592FB1181 /* Foundation.framework */; };
 		EB910B2BB9603BD871B97F6D84A4DF04 /* SVGImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68CE93A1A4A173B8187C4A59493246C6 /* SVGImageView.m */; };
 		ED41510B0B0AEF55A18762D1E4A2A089 /* SVGBezierPath.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA7422C313D923D0DDC78459A60395F6 /* SVGBezierPath.mm */; };
 		F8576580999DE758C5D40D10C8F9F450 /* SVGImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = BF208BA4849051718BBBAF36B5A34ACD /* SVGImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -42,12 +42,12 @@
 		01F70D0A11DB85BAC5D9E6D7D58BF846 /* PocketSVG.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PocketSVG.h; sourceTree = "<group>"; };
 		09E010466D466B72998A0036437EAF9B /* PocketSVG-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PocketSVG-umbrella.h"; sourceTree = "<group>"; };
 		0E0FD070821F9B3D8C09A6854D63A386 /* SVGLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SVGLayer.h; sourceTree = "<group>"; };
-		0F9310556BBE996AE628441592FB1181 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		1A6A8C1587D08DE13AEC9D5AF7CC0031 /* Pods-HackArt-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HackArt-resources.sh"; sourceTree = "<group>"; };
 		3D6F0F7201C1C64852F6AD36DADEB828 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		437E58BA0328C6BEBCC3A267C0187C4B /* Pods-HackArt-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HackArt-umbrella.h"; sourceTree = "<group>"; };
 		531FE16EC2F87E5BE28806834A590CF8 /* Pods-HackArt-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HackArt-acknowledgements.markdown"; sourceTree = "<group>"; };
 		54AC8B7DEC9DD85C114BCF13095A294D /* PocketSVG-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PocketSVG-prefix.pch"; sourceTree = "<group>"; };
+		54F9A0E952988935C32EDDB1429D7133 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		5E0E72D28A6EC553E442FEAB8E3AA765 /* PocketSVG.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PocketSVG.modulemap; sourceTree = "<group>"; };
 		68CE93A1A4A173B8187C4A59493246C6 /* SVGImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SVGImageView.m; sourceTree = "<group>"; };
 		7E7F69A156C7185BF7A4710873BE9884 /* SVGBezierPath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SVGBezierPath.h; sourceTree = "<group>"; };
@@ -55,7 +55,6 @@
 		842850A029B86D398979586D2105FCEF /* SVGLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SVGLayer.m; sourceTree = "<group>"; };
 		88AA54BA35838FB51DEC849C9314600A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9CF13BCB9D36F1319E01CAB18FE2FBA7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		A42A7BEF390192F8465A49BE220779D7 /* PocketSVG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PocketSVG.framework; path = PocketSVG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4C937E54AC15D3448215C05F5E6C774 /* Pods-HackArt-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HackArt-dummy.m"; sourceTree = "<group>"; };
 		A53AE9245961C32DCADFD620F1B22FD1 /* SVGPortability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SVGPortability.h; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		C6A4DF4CAD949CCA5B060BCBDEC2F8D7 /* Pods-HackArt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HackArt.debug.xcconfig"; sourceTree = "<group>"; };
 		CCF14E7CD411BDE42DBF566A995CAB58 /* SVGEngine.mm */ = {isa = PBXFileReference; includeInIndex = 1; path = SVGEngine.mm; sourceTree = "<group>"; };
 		EA7422C313D923D0DDC78459A60395F6 /* SVGBezierPath.mm */ = {isa = PBXFileReference; includeInIndex = 1; path = SVGBezierPath.mm; sourceTree = "<group>"; };
+		FC2770B482BFE91273C8560623F1422C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EADE6F19CD4069F4E3CC833F70A43F98 /* Foundation.framework in Frameworks */,
+				1157CD9F835FCFECC75883A61993B44F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,8 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A60955556132E900103C6108A3F1A325 /* Foundation.framework in Frameworks */,
-				B952BD736C0BA826C07593AC532B7337 /* QuartzCore.framework in Frameworks */,
+				2215C0EE517BBFD5D783C467242DDE25 /* Foundation.framework in Frameworks */,
+				D1D5940CE03B6B1572FB0F71B271DA06 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +104,7 @@
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				56933BB70C933E0BF63210DD87D76AD0 /* iOS */,
+				978007DCB56F415BE390E0F949D4D4E5 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -140,15 +140,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		56933BB70C933E0BF63210DD87D76AD0 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				0F9310556BBE996AE628441592FB1181 /* Foundation.framework */,
-				9CF13BCB9D36F1319E01CAB18FE2FBA7 /* QuartzCore.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +149,15 @@
 				54CE3C3C73E210766F1916303D0A0430 /* Products */,
 				3FA197B1D56CE2E3460D2EA14DFAB318 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		978007DCB56F415BE390E0F949D4D4E5 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				54F9A0E952988935C32EDDB1429D7133 /* Foundation.framework */,
+				FC2770B482BFE91273C8560623F1422C /* QuartzCore.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		C3B736BB8B9B6B5AF701BD590D702E18 /* PocketSVG */ = {
@@ -340,11 +340,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-HackArt/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-HackArt/Pods-HackArt.modulemap";
 				OTHER_LDFLAGS = "";
@@ -377,11 +373,7 @@
 				INFOPLIST_FILE = "Target Support Files/PocketSVG/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/PocketSVG/PocketSVG.modulemap";
 				PRODUCT_MODULE_NAME = PocketSVG;
 				PRODUCT_NAME = PocketSVG;
@@ -472,11 +464,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-HackArt/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-HackArt/Pods-HackArt.modulemap";
 				OTHER_LDFLAGS = "";
@@ -510,11 +498,7 @@
 				INFOPLIST_FILE = "Target Support Files/PocketSVG/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/PocketSVG/PocketSVG.modulemap";
 				PRODUCT_MODULE_NAME = PocketSVG;
 				PRODUCT_NAME = PocketSVG;
