@@ -7,21 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		340CC67920B9B582001FF0E0 /* BasicLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340CC66E20B9B582001FF0E0 /* BasicLayers.swift */; };
+		340CC67A20B9B582001FF0E0 /* BasicViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340CC66F20B9B582001FF0E0 /* BasicViews.swift */; };
+		340CC67B20B9B582001FF0E0 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340CC67120B9B582001FF0E0 /* BasicViewController.swift */; };
+		340CC67C20B9B582001FF0E0 /* Untitled.sketch in Resources */ = {isa = PBXBuildFile; fileRef = 340CC67320B9B582001FF0E0 /* Untitled.sketch */; };
+		340CC67D20B9B582001FF0E0 /* asd.svg in Resources */ = {isa = PBXBuildFile; fileRef = 340CC67420B9B582001FF0E0 /* asd.svg */; };
+		340CC67E20B9B582001FF0E0 /* PaintingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340CC67720B9B582001FF0E0 /* PaintingViewController.swift */; };
+		340CC67F20B9B582001FF0E0 /* PaintingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340CC67820B9B582001FF0E0 /* PaintingView.swift */; };
 		341702DB20B95016000C246C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341702DA20B95016000C246C /* AppDelegate.swift */; };
 		341702DD20B95016000C246C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341702DC20B95016000C246C /* ViewController.swift */; };
 		341702E020B95016000C246C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341702DE20B95016000C246C /* Main.storyboard */; };
 		341702E220B95017000C246C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 341702E120B95017000C246C /* Assets.xcassets */; };
 		341702E520B95017000C246C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341702E320B95017000C246C /* LaunchScreen.storyboard */; };
-		341702F120B95971000C246C /* asd.svg in Resources */ = {isa = PBXBuildFile; fileRef = 341702F020B95971000C246C /* asd.svg */; };
-		341702F320B95995000C246C /* PaintingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341702F220B95995000C246C /* PaintingViewController.swift */; };
-		341702F520B9599F000C246C /* PaintingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341702F420B9599F000C246C /* PaintingView.swift */; };
-		341702F920B959FA000C246C /* BasicViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341702F820B959FA000C246C /* BasicViews.swift */; };
-		341702FC20B95A6A000C246C /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341702FB20B95A6A000C246C /* BasicViewController.swift */; };
-		341702FE20B980B9000C246C /* BasicLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341702FD20B980B9000C246C /* BasicLayers.swift */; };
 		86EB118FB09CFD2BBFDC4EBE /* Pods_HackArt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7B366F9E2EA8DDCCDC8E83 /* Pods_HackArt.framework */; };
+		9E9A018920B99E9700475D5C /* TuriCreate.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A018820B99E9700475D5C /* TuriCreate.mlmodel */; };
+		9E9A018E20B99FDD00475D5C /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A018D20B99FDD00475D5C /* Constraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		340CC66E20B9B582001FF0E0 /* BasicLayers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicLayers.swift; sourceTree = "<group>"; };
+		340CC66F20B9B582001FF0E0 /* BasicViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicViews.swift; sourceTree = "<group>"; };
+		340CC67120B9B582001FF0E0 /* BasicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
+		340CC67320B9B582001FF0E0 /* Untitled.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = Untitled.sketch; sourceTree = "<group>"; };
+		340CC67420B9B582001FF0E0 /* asd.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = asd.svg; sourceTree = "<group>"; };
+		340CC67720B9B582001FF0E0 /* PaintingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingViewController.swift; sourceTree = "<group>"; };
+		340CC67820B9B582001FF0E0 /* PaintingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingView.swift; sourceTree = "<group>"; };
 		341702D720B95016000C246C /* HackArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		341702DA20B95016000C246C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		341702DC20B95016000C246C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,13 +39,9 @@
 		341702E120B95017000C246C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		341702E420B95017000C246C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		341702E620B95017000C246C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		341702F020B95971000C246C /* asd.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = asd.svg; sourceTree = "<group>"; };
-		341702F220B95995000C246C /* PaintingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingViewController.swift; sourceTree = "<group>"; };
-		341702F420B9599F000C246C /* PaintingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingView.swift; sourceTree = "<group>"; };
-		341702F820B959FA000C246C /* BasicViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViews.swift; sourceTree = "<group>"; };
-		341702FB20B95A6A000C246C /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
-		341702FD20B980B9000C246C /* BasicLayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicLayers.swift; sourceTree = "<group>"; };
 		9085B6C34E7D0B44B7F81048 /* Pods-HackArt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackArt.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackArt/Pods-HackArt.release.xcconfig"; sourceTree = "<group>"; };
+		9E9A018820B99E9700475D5C /* TuriCreate.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TuriCreate.mlmodel; sourceTree = "<group>"; };
+		9E9A018D20B99FDD00475D5C /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		BF7B366F9E2EA8DDCCDC8E83 /* Pods_HackArt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackArt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CB88884DA031ED4E64D4B4 /* Pods-HackArt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackArt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackArt/Pods-HackArt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +75,58 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		340CC66C20B9B582001FF0E0 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				340CC66D20B9B582001FF0E0 /* UIKit */,
+				340CC67020B9B582001FF0E0 /* controllers */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		340CC66D20B9B582001FF0E0 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				340CC66E20B9B582001FF0E0 /* BasicLayers.swift */,
+				340CC66F20B9B582001FF0E0 /* BasicViews.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		340CC67020B9B582001FF0E0 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				340CC67120B9B582001FF0E0 /* BasicViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		340CC67220B9B582001FF0E0 /* media */ = {
+			isa = PBXGroup;
+			children = (
+				340CC67320B9B582001FF0E0 /* Untitled.sketch */,
+				340CC67420B9B582001FF0E0 /* asd.svg */,
+			);
+			path = media;
+			sourceTree = "<group>";
+		};
+		340CC67520B9B582001FF0E0 /* modules */ = {
+			isa = PBXGroup;
+			children = (
+				340CC67620B9B582001FF0E0 /* paintingMap */,
+			);
+			path = modules;
+			sourceTree = "<group>";
+		};
+		340CC67620B9B582001FF0E0 /* paintingMap */ = {
+			isa = PBXGroup;
+			children = (
+				340CC67720B9B582001FF0E0 /* PaintingViewController.swift */,
+				340CC67820B9B582001FF0E0 /* PaintingView.swift */,
+			);
+			path = paintingMap;
+			sourceTree = "<group>";
+		};
 		341702CE20B95016000C246C = {
 			isa = PBXGroup;
 			children = (
@@ -90,68 +148,35 @@
 		341702D920B95016000C246C /* HackArt */ = {
 			isa = PBXGroup;
 			children = (
-				341702F620B959B5000C246C /* common */,
-				341702EC20B95233000C246C /* modules */,
+				9E9A018F20B99FE000475D5C /* Extensions */,
+				9E9A018520B99E6F00475D5C /* MLModel */,
 				341702DA20B95016000C246C /* AppDelegate.swift */,
+				340CC66C20B9B582001FF0E0 /* common */,
+				340CC67220B9B582001FF0E0 /* media */,
+				340CC67520B9B582001FF0E0 /* modules */,
 				341702DC20B95016000C246C /* ViewController.swift */,
 				341702DE20B95016000C246C /* Main.storyboard */,
 				341702E120B95017000C246C /* Assets.xcassets */,
-				341702EF20B9593B000C246C /* media */,
 				341702E320B95017000C246C /* LaunchScreen.storyboard */,
 				341702E620B95017000C246C /* Info.plist */,
 			);
 			path = HackArt;
 			sourceTree = "<group>";
 		};
-		341702EC20B95233000C246C /* modules */ = {
+		9E9A018520B99E6F00475D5C /* MLModel */ = {
 			isa = PBXGroup;
 			children = (
-				341702EE20B95252000C246C /* paintingMap */,
+				9E9A018820B99E9700475D5C /* TuriCreate.mlmodel */,
 			);
-			path = modules;
+			path = MLModel;
 			sourceTree = "<group>";
 		};
-		341702EE20B95252000C246C /* paintingMap */ = {
+		9E9A018F20B99FE000475D5C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				341702F220B95995000C246C /* PaintingViewController.swift */,
-				341702F420B9599F000C246C /* PaintingView.swift */,
+				9E9A018D20B99FDD00475D5C /* Constraints.swift */,
 			);
-			path = paintingMap;
-			sourceTree = "<group>";
-		};
-		341702EF20B9593B000C246C /* media */ = {
-			isa = PBXGroup;
-			children = (
-				341702F020B95971000C246C /* asd.svg */,
-			);
-			path = media;
-			sourceTree = "<group>";
-		};
-		341702F620B959B5000C246C /* common */ = {
-			isa = PBXGroup;
-			children = (
-				341702FA20B95A4F000C246C /* controllers */,
-				341702F720B959E6000C246C /* UIKit */,
-			);
-			path = common;
-			sourceTree = "<group>";
-		};
-		341702F720B959E6000C246C /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				341702F820B959FA000C246C /* BasicViews.swift */,
-				341702FD20B980B9000C246C /* BasicLayers.swift */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
-		341702FA20B95A4F000C246C /* controllers */ = {
-			isa = PBXGroup;
-			children = (
-				341702FB20B95A6A000C246C /* BasicViewController.swift */,
-			);
-			path = controllers;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,7 +190,7 @@
 				341702D320B95016000C246C /* Sources */,
 				341702D420B95016000C246C /* Frameworks */,
 				341702D520B95016000C246C /* Resources */,
-				DBCCC6DAFB62585018A60D8F /* [CP] Embed Pods Frameworks */,
+				E61ED53F6FBB593A4C33195A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -214,8 +239,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				340CC67D20B9B582001FF0E0 /* asd.svg in Resources */,
+				340CC67C20B9B582001FF0E0 /* Untitled.sketch in Resources */,
 				341702E520B95017000C246C /* LaunchScreen.storyboard in Resources */,
-				341702F120B95971000C246C /* asd.svg in Resources */,
 				341702E220B95017000C246C /* Assets.xcassets in Resources */,
 				341702E020B95016000C246C /* Main.storyboard in Resources */,
 			);
@@ -242,7 +268,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DBCCC6DAFB62585018A60D8F /* [CP] Embed Pods Frameworks */ = {
+		E61ED53F6FBB593A4C33195A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -267,13 +293,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				341702F920B959FA000C246C /* BasicViews.swift in Sources */,
-				341702FC20B95A6A000C246C /* BasicViewController.swift in Sources */,
+				340CC67E20B9B582001FF0E0 /* PaintingViewController.swift in Sources */,
 				341702DD20B95016000C246C /* ViewController.swift in Sources */,
+				340CC67A20B9B582001FF0E0 /* BasicViews.swift in Sources */,
+				340CC67920B9B582001FF0E0 /* BasicLayers.swift in Sources */,
+				9E9A018E20B99FDD00475D5C /* Constraints.swift in Sources */,
+				9E9A018920B99E9700475D5C /* TuriCreate.mlmodel in Sources */,
+				340CC67F20B9B582001FF0E0 /* PaintingView.swift in Sources */,
 				341702DB20B95016000C246C /* AppDelegate.swift in Sources */,
-				341702FE20B980B9000C246C /* BasicLayers.swift in Sources */,
-				341702F520B9599F000C246C /* PaintingView.swift in Sources */,
-				341702F320B95995000C246C /* PaintingViewController.swift in Sources */,
+				340CC67B20B9B582001FF0E0 /* BasicViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,13 +447,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GU34X5QPPY;
+				DEVELOPMENT_TEAM = CB989UTT6M;
 				INFOPLIST_FILE = HackArt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "pl.borocode.HackArt-PC";
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.borocode.HackArt-PC-MO";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -438,13 +467,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GU34X5QPPY;
+				DEVELOPMENT_TEAM = CB989UTT6M;
 				INFOPLIST_FILE = HackArt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "pl.borocode.HackArt-PC";
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.borocode.HackArt-PC-MO";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
