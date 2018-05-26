@@ -1,3 +1,16 @@
-PODFILE CHECKSUM: 6d01482b0c59174df7ffc2df1a266082d251dd20
+PODS:
+  - PocketSVG (2.4.0)
+
+DEPENDENCIES:
+  - PocketSVG
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - PocketSVG
+
+SPEC CHECKSUMS:
+  PocketSVG: 8ac7b20a881ca1a3d46ba1e54ee2b0f2307c3d48
+
+PODFILE CHECKSUM: 3bba717838a6a0c0f9bd85d50f1cb842a3193a26
 
 COCOAPODS: 1.5.3

@@ -6,5 +6,5 @@ target 'HackArt' do
   use_frameworks!
 
   # Pods for HackArt
-
+  pod 'PocketSVG'
 end
