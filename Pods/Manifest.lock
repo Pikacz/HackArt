@@ -5,7 +5,7 @@ DEPENDENCIES:
   - PocketSVG
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - PocketSVG
 
 SPEC CHECKSUMS:
@@ -13,4 +13,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 3bba717838a6a0c0f9bd85d50f1cb842a3193a26
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.0

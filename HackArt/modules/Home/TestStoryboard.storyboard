@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jur-IU-b3Y">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="S5t-8T-j1U">
+            <objects>
+                <viewController id="FOV-ap-D8Z" customClass="HomeViewController" customModule="HackArt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B93-KB-76f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UyS-UT-eVr" userLabel="PaintingView">
+                                <rect key="frame" x="24" y="88" width="327" height="423"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAJ-Az-eIf">
+                                        <rect key="frame" x="0.0" y="0.0" width="327" height="388"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tytuł: Pozdero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kST-nq-LFg">
+                                        <rect key="frame" x="0.0" y="388" width="327" height="35"/>
+                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="bip-wG-kQK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="vtm-GC-DqH" userLabel="PaintingButtons">
+                                <rect key="frame" x="50" y="529" width="275" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rUb-yV-OXF" customClass="PaintingButtons" customModule="HackArt" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="Umz-M8-fZb"/>
+                                            <constraint firstAttribute="height" constant="50" id="kdO-ZL-brP"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ufd-hj-cUR" customClass="PaintingButtons" customModule="HackArt" customModuleProvider="target">
+                                        <rect key="frame" x="112.5" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F4f-Uu-daR" customClass="PaintingButtons" customModule="HackArt" customModuleProvider="target">
+                                        <rect key="frame" x="225" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="F4f-Uu-daR" firstAttribute="height" secondItem="rUb-yV-OXF" secondAttribute="height" id="ICZ-1v-ntL"/>
+                                    <constraint firstItem="F4f-Uu-daR" firstAttribute="width" secondItem="rUb-yV-OXF" secondAttribute="width" id="d4z-em-DCa"/>
+                                    <constraint firstItem="ufd-hj-cUR" firstAttribute="height" secondItem="rUb-yV-OXF" secondAttribute="height" id="eNu-Bx-pYW"/>
+                                    <constraint firstItem="ufd-hj-cUR" firstAttribute="width" secondItem="rUb-yV-OXF" secondAttribute="width" id="yj8-qx-n49"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="5VR-IL-5dT" userLabel="BottomButtons">
+                                <rect key="frame" x="24" y="597" width="326" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qte-lH-T4C" customClass="BottomButton" customModule="HackArt" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="156" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="32v-UT-f2J" customClass="BottomButton" customModule="HackArt" customModuleProvider="target">
+                                        <rect key="frame" x="170" y="0.0" width="156" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="OTC-k1-vbM"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="UyS-UT-eVr" firstAttribute="leading" secondItem="SjG-d6-yWs" secondAttribute="leading" constant="24" id="2pC-q1-OKI"/>
+                            <constraint firstItem="UyS-UT-eVr" firstAttribute="top" secondItem="SjG-d6-yWs" secondAttribute="top" constant="24" id="JVs-x7-RhO"/>
+                            <constraint firstItem="5VR-IL-5dT" firstAttribute="centerX" secondItem="B93-KB-76f" secondAttribute="centerX" id="Jcn-9d-tbR"/>
+                            <constraint firstItem="vtm-GC-DqH" firstAttribute="centerX" secondItem="B93-KB-76f" secondAttribute="centerX" id="KNr-yv-tnM"/>
+                            <constraint firstItem="5VR-IL-5dT" firstAttribute="top" secondItem="vtm-GC-DqH" secondAttribute="bottom" constant="18" id="NEk-4s-jFw"/>
+                            <constraint firstItem="UyS-UT-eVr" firstAttribute="centerX" secondItem="B93-KB-76f" secondAttribute="centerX" id="RbB-DD-Kt8"/>
+                            <constraint firstItem="5VR-IL-5dT" firstAttribute="leading" secondItem="B93-KB-76f" secondAttribute="leading" constant="24" id="Tst-gG-aaz"/>
+                            <constraint firstItem="vtm-GC-DqH" firstAttribute="top" secondItem="UyS-UT-eVr" secondAttribute="bottom" constant="18" id="XAM-W1-izR"/>
+                            <constraint firstItem="vtm-GC-DqH" firstAttribute="leading" secondItem="SjG-d6-yWs" secondAttribute="leading" constant="50" id="aTS-Qv-ceP"/>
+                            <constraint firstItem="SjG-d6-yWs" firstAttribute="bottom" secondItem="5VR-IL-5dT" secondAttribute="bottom" constant="20" id="yg4-c6-CE5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SjG-d6-yWs"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Oze-k3-P0a"/>
+                    <connections>
+                        <outlet property="detectionBtn" destination="32v-UT-f2J" id="QDW-1G-AmB"/>
+                        <outlet property="eyeBtn" destination="rUb-yV-OXF" id="KzP-Nd-ZHm"/>
+                        <outlet property="filterBtn" destination="qte-lH-T4C" id="d1n-d2-WcH"/>
+                        <outlet property="heartBtn" destination="ufd-hj-cUR" id="q1A-zX-MfT"/>
+                        <outlet property="nextBtn" destination="F4f-Uu-daR" id="aZu-zp-FDu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aTF-ER-9by" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1100" y="137.18140929535232"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Wbw-7f-dEh">
+            <objects>
+                <viewController id="0hv-Wa-z91" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="arb-rL-BAJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v3A-4Y-8qt">
+                                <rect key="frame" x="0.0" y="176" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="wDg-kT-Z4g"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FF1-6R-T19" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1857" y="206"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bGd-Tk-4gh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jur-IU-b3Y" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xya-Fk-fBd">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FOV-ap-D8Z" kind="relationship" relationship="rootViewController" id="hGu-UZ-2cj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g7j-bj-3qt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160.80000000000001" y="137.18140929535232"/>
+        </scene>
+    </scenes>
+</document>

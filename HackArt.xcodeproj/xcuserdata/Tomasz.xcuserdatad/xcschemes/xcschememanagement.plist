@@ -7,7 +7,11 @@
 		<key>HackArt.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>0</integer>
+=======
+			<integer>2</integer>
+>>>>>>> a32c0d82f11c3f1ae0546b0b28d2475d8044a365
 		</dict>
 	</dict>
 </dict>
