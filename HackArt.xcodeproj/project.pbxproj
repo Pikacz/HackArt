@@ -14,6 +14,10 @@
 		340CC67D20B9B582001FF0E0 /* asd.svg in Resources */ = {isa = PBXBuildFile; fileRef = 340CC67420B9B582001FF0E0 /* asd.svg */; };
 		340CC67E20B9B582001FF0E0 /* PaintingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340CC67720B9B582001FF0E0 /* PaintingViewController.swift */; };
 		340CC67F20B9B582001FF0E0 /* PaintingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340CC67820B9B582001FF0E0 /* PaintingView.swift */; };
+		340CC68120B9CA37001FF0E0 /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340CC68020B9CA37001FF0E0 /* Painting.swift */; };
+		340CC68320B9CAD1001FF0E0 /* PaintingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340CC68220B9CAD1001FF0E0 /* PaintingLayer.swift */; };
+		340CC68520B9DA2E001FF0E0 /* Witkacy.svg in Resources */ = {isa = PBXBuildFile; fileRef = 340CC68420B9DA2E001FF0E0 /* Witkacy.svg */; };
+		340CC68720B9DDC1001FF0E0 /* PaintingViewScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340CC68620B9DDC1001FF0E0 /* PaintingViewScroll.swift */; };
 		341702DB20B95016000C246C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341702DA20B95016000C246C /* AppDelegate.swift */; };
 		341702DD20B95016000C246C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341702DC20B95016000C246C /* ViewController.swift */; };
 		341702E020B95016000C246C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341702DE20B95016000C246C /* Main.storyboard */; };
@@ -32,6 +36,10 @@
 		340CC67420B9B582001FF0E0 /* asd.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = asd.svg; sourceTree = "<group>"; };
 		340CC67720B9B582001FF0E0 /* PaintingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingViewController.swift; sourceTree = "<group>"; };
 		340CC67820B9B582001FF0E0 /* PaintingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingView.swift; sourceTree = "<group>"; };
+		340CC68020B9CA37001FF0E0 /* Painting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Painting.swift; sourceTree = "<group>"; };
+		340CC68220B9CAD1001FF0E0 /* PaintingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingLayer.swift; sourceTree = "<group>"; };
+		340CC68420B9DA2E001FF0E0 /* Witkacy.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Witkacy.svg; sourceTree = "<group>"; };
+		340CC68620B9DDC1001FF0E0 /* PaintingViewScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingViewScroll.swift; sourceTree = "<group>"; };
 		341702D720B95016000C246C /* HackArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		341702DA20B95016000C246C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		341702DC20B95016000C246C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +112,7 @@
 		340CC67220B9B582001FF0E0 /* media */ = {
 			isa = PBXGroup;
 			children = (
+				340CC68420B9DA2E001FF0E0 /* Witkacy.svg */,
 				340CC67320B9B582001FF0E0 /* Untitled.sketch */,
 				340CC67420B9B582001FF0E0 /* asd.svg */,
 			);
@@ -123,6 +132,9 @@
 			children = (
 				340CC67720B9B582001FF0E0 /* PaintingViewController.swift */,
 				340CC67820B9B582001FF0E0 /* PaintingView.swift */,
+				340CC68620B9DDC1001FF0E0 /* PaintingViewScroll.swift */,
+				340CC68020B9CA37001FF0E0 /* Painting.swift */,
+				340CC68220B9CAD1001FF0E0 /* PaintingLayer.swift */,
 			);
 			path = paintingMap;
 			sourceTree = "<group>";
@@ -242,6 +254,7 @@
 				340CC67D20B9B582001FF0E0 /* asd.svg in Resources */,
 				340CC67C20B9B582001FF0E0 /* Untitled.sketch in Resources */,
 				341702E520B95017000C246C /* LaunchScreen.storyboard in Resources */,
+				340CC68520B9DA2E001FF0E0 /* Witkacy.svg in Resources */,
 				341702E220B95017000C246C /* Assets.xcassets in Resources */,
 				341702E020B95016000C246C /* Main.storyboard in Resources */,
 			);
@@ -294,14 +307,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				340CC67E20B9B582001FF0E0 /* PaintingViewController.swift in Sources */,
+				340CC68320B9CAD1001FF0E0 /* PaintingLayer.swift in Sources */,
 				341702DD20B95016000C246C /* ViewController.swift in Sources */,
 				340CC67A20B9B582001FF0E0 /* BasicViews.swift in Sources */,
 				340CC67920B9B582001FF0E0 /* BasicLayers.swift in Sources */,
 				9E9A018E20B99FDD00475D5C /* Constraints.swift in Sources */,
 				9E9A018920B99E9700475D5C /* TuriCreate.mlmodel in Sources */,
 				340CC67F20B9B582001FF0E0 /* PaintingView.swift in Sources */,
+				340CC68120B9CA37001FF0E0 /* Painting.swift in Sources */,
 				341702DB20B95016000C246C /* AppDelegate.swift in Sources */,
 				340CC67B20B9B582001FF0E0 /* BasicViewController.swift in Sources */,
+				340CC68720B9DDC1001FF0E0 /* PaintingViewScroll.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
