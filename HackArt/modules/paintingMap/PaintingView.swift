@@ -1,9 +1,262 @@
-//
-//  PaintingView.swift
-//  HackArt
-//
-//  Created by Paweł Czerwiński on 26/05/2018.
-//  Copyright © 2018 BoroCode. All rights reserved.
-//
+import UIKit
+import PocketSVG
 
-import Foundation
+
+class PaintingView: BasicView {
+  
+  private let paintingLayer: PaintingLayer = PaintingLayer()
+  
+  
+  
+  
+  override func initialize() {
+    super.initialize()
+    
+    backgroundColor = UIColor.blue
+
+    layer.addSublayer(paintingLayer)
+    paintingLayer.frame = layer.bounds
+
+    let painting: Painting = Painting(name: "asd", image: #imageLiteral(resourceName: "mob2264"))!
+    paintingLayer.display(painting: painting)
+    
+    
+  }
+  
+  
+  
+
+  
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+
+    paintingLayer.frame = layer.bounds
+  }
+  
+  func setup() {
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hmm(tap:)))
+    addGestureRecognizer(tap)
+  }
+  
+  @objc private func hmm(tap: UITapGestureRecognizer) {
+    let point: CGPoint = tap.location(in: self)
+    print("\(point.x), \(point.y)")
+    if paintingLayer.didHit(id: 1, point: point) {
+      print("ooo")
+    }
+    
+  }
+}
+
+
+class PaintingLayer: BasicLayer {
+  private var imageLayer: CALayer = CALayer()
+  
+  private var highlightAreas: [Int: CALayer] = [:] {
+    willSet {
+      for (_, layer) in highlightAreas {
+        layer.removeFromSuperlayer()
+      }
+    }
+    didSet {
+      for (_, layer) in highlightAreas {
+        addSublayer(layer)
+      }
+      setNeedsLayout()
+    }
+  }
+  
+  private var hitAreas: [Int: CALayer] = [:] {
+    willSet {
+      for (_, layer) in hitAreas {
+        layer.removeFromSuperlayer()
+      }
+    }
+    didSet {
+      for (_, layer) in hitAreas {
+        addSublayer(layer)
+      }
+      setNeedsLayout()
+    }
+  }
+
+  
+  private var painting: Painting! {
+    didSet {
+      var highlight: [Int: CALayer] = [:]
+      for (id, path) in painting.highlightPaths {
+        let layer: CAShapeLayer = CAShapeLayer()
+        layer.path = path.cgPath
+        layer.fillColor = UIColor.red.cgColor
+        
+        highlight[id] = layer
+      }
+      self.highlightAreas = highlight
+      
+      var hit: [Int: CALayer] = [:]
+      for (id, path) in painting.hitPaths {
+        let layer: CAShapeLayer = CAShapeLayer()
+        layer.path = path.cgPath
+        layer.fillColor = UIColor.clear.cgColor
+        
+        hit[id] = layer
+      }
+      self.hitAreas = hit
+      
+      imageLayer.contents = painting.image.cgImage
+    }
+  }
+  
+  
+  override func initialize() {
+    super.initialize()
+    addSublayer(imageLayer)
+    imageLayer.masksToBounds = true
+    imageLayer.contentsScale = UIScreen.main.scale
+  }
+  
+  override func layoutSublayers() {
+    super.layoutSublayers()
+    guard painting != nil else { return }
+    
+    let scaleTransform: CATransform3D = getScaleTransform(frame: painting.framePath)
+    for (id, path) in painting.highlightPaths {
+      highlightAreas[id]?.transform = CATransform3DConcat(scaleTransform, path.transform)
+      highlightAreas[id]?.masksToBounds = true
+    }
+    
+    for (id, path) in painting.hitPaths {
+      hitAreas[id]?.transform = CATransform3DConcat(scaleTransform, path.transform)
+    }
+    
+    let xScale: CGFloat = bounds.width / painting.image.size.width
+    let yScale: CGFloat = bounds.height / painting.image.size.height
+    
+    var imgH: CGFloat
+    var imgW: CGFloat
+    
+    if xScale > yScale {
+      imgH = bounds.height
+      imgW = imgH * painting.image.size.width / painting.image.size.height
+    } else {
+      imgW = bounds.width
+      imgH = imgW * painting.image.size.height / painting.image.size.width
+    }
+    imageLayer.bounds.size = CGSize(width: imgW, height: imgH)
+    imageLayer.position = CGPoint(x: bounds.midX, y: bounds.midY)
+  }
+  
+  
+  func display(painting: Painting) {
+    self.painting = painting
+  }
+  
+  
+  func didHit(id: Int, point: CGPoint) -> Bool {
+    return highlightAreas[id]?.hitTest(point) != nil
+  }
+  
+  
+  private func getScaleTransform(frame: SVGBezierPath) -> CATransform3D {
+    let xScale: CGFloat = bounds.width / frame.bounds.width
+    let yScale: CGFloat = bounds.height / frame.bounds.height
+    var scale: CGFloat
+    if xScale < CGFloat(1.0) || yScale < CGFloat(1.0) {
+      scale = fmin(xScale, yScale)
+    } else {
+      scale = fmax(xScale, yScale)
+    }
+    
+    
+    let scalledH: CGFloat = frame.bounds.height * scale
+    let scalledW: CGFloat = frame.bounds.width * scale
+    
+    let moveDown: CGFloat = (bounds.height - scalledH) / CGFloat(2.0)
+    let moveRight: CGFloat = (bounds.width - scalledW) / CGFloat(2.0)
+    
+    
+    let translate: CATransform3D = CATransform3DTranslate(
+      CATransform3DIdentity,
+      -frame.bounds.minX + moveRight,
+      -frame.bounds.minY + moveDown,
+      CGFloat(0.0)
+    )
+
+    
+    return CATransform3DScale(translate, scale, scale, CGFloat(0.0))
+  }
+}
+
+
+
+
+
+
+class Painting {
+  let hitPaths: [Int: SVGBezierPath]
+  let highlightPaths: [Int: SVGBezierPath]
+  let framePath: SVGBezierPath
+  
+  let image: UIImage
+  
+  
+  init?(name: String, image: UIImage) {
+    guard let url: URL = Bundle.main.url(forResource: name, withExtension: "svg") else { return nil }
+    var hit: [Int: SVGBezierPath] = [:]
+    var highlight: [Int: SVGBezierPath] = [:]
+    var frame: SVGBezierPath!
+    
+    for path: SVGBezierPath in SVGBezierPath.pathsFromSVG(at: url) {
+      if Painting.isFrame(path: path) {
+        frame = path
+      } else if let hitId: Int = Painting.hitId(path: path) {
+        hit[hitId] = path
+      } else if let highlightId: Int = Painting.highlightId(path: path) {
+        highlight[highlightId] = path
+      }
+    }
+    self.hitPaths = hit
+    self.highlightPaths = highlight
+    self.framePath = frame
+    self.image = image
+  }
+  
+  
+  private static func isFrame(path: SVGBezierPath) -> Bool {
+    return path.id == "frame"
+  }
+  
+  
+  private static func hitId(path: SVGBezierPath) -> Int? {
+    guard let pathId: String = path.id else { return nil }
+    guard pathId.hasPrefix("hit_") else { return nil }
+    return Int(pathId[pathId.index(pathId.startIndex, offsetBy: 4)...])
+  }
+  
+  private static func highlightId(path: SVGBezierPath) -> Int? {
+    guard let pathId: String = path.id else { return nil }
+    guard pathId.hasPrefix("highlight_") else { return nil }
+    return Int(pathId[pathId.index(pathId.startIndex, offsetBy: 10)...])
+  }
+}
+
+
+
+extension SVGBezierPath {
+  
+  var transform: CATransform3D {
+    if let transform = svgAttributes["transform"] as? CGAffineTransform {
+      return  CATransform3DMakeAffineTransform(transform)
+    }
+    
+    return CATransform3DIdentity
+  }
+  
+  
+  var id: String? {
+    return svgAttributes["id"] as? String
+  }
+  
+  
+}

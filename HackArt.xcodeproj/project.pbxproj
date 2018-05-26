@@ -17,6 +17,7 @@
 		341702F520B9599F000C246C /* PaintingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341702F420B9599F000C246C /* PaintingView.swift */; };
 		341702F920B959FA000C246C /* BasicViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341702F820B959FA000C246C /* BasicViews.swift */; };
 		341702FC20B95A6A000C246C /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341702FB20B95A6A000C246C /* BasicViewController.swift */; };
+		341702FE20B980B9000C246C /* BasicLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341702FD20B980B9000C246C /* BasicLayers.swift */; };
 		86EB118FB09CFD2BBFDC4EBE /* Pods_HackArt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7B366F9E2EA8DDCCDC8E83 /* Pods_HackArt.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		341702F420B9599F000C246C /* PaintingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingView.swift; sourceTree = "<group>"; };
 		341702F820B959FA000C246C /* BasicViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViews.swift; sourceTree = "<group>"; };
 		341702FB20B95A6A000C246C /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
+		341702FD20B980B9000C246C /* BasicLayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicLayers.swift; sourceTree = "<group>"; };
 		9085B6C34E7D0B44B7F81048 /* Pods-HackArt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackArt.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackArt/Pods-HackArt.release.xcconfig"; sourceTree = "<group>"; };
 		BF7B366F9E2EA8DDCCDC8E83 /* Pods_HackArt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackArt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CB88884DA031ED4E64D4B4 /* Pods-HackArt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackArt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackArt/Pods-HackArt.debug.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				341702F820B959FA000C246C /* BasicViews.swift */,
+				341702FD20B980B9000C246C /* BasicLayers.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				341702FC20B95A6A000C246C /* BasicViewController.swift in Sources */,
 				341702DD20B95016000C246C /* ViewController.swift in Sources */,
 				341702DB20B95016000C246C /* AppDelegate.swift in Sources */,
+				341702FE20B980B9000C246C /* BasicLayers.swift in Sources */,
 				341702F520B9599F000C246C /* PaintingView.swift in Sources */,
 				341702F320B95995000C246C /* PaintingViewController.swift in Sources */,
 			);
