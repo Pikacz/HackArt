@@ -22,6 +22,15 @@
 		86EB118FB09CFD2BBFDC4EBE /* Pods_HackArt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7B366F9E2EA8DDCCDC8E83 /* Pods_HackArt.framework */; };
 		9E9A018920B99E9700475D5C /* TuriCreate.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A018820B99E9700475D5C /* TuriCreate.mlmodel */; };
 		9E9A018E20B99FDD00475D5C /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A018D20B99FDD00475D5C /* Constraints.swift */; };
+		F187974220B9B89B00FAE7C1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187974120B9B89B00FAE7C1 /* HomeViewController.swift */; };
+		F187974620B9C23E00FAE7C1 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187974520B9C23E00FAE7C1 /* PopUpView.swift */; };
+		F187974920B9C31400FAE7C1 /* ScrollLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187974820B9C31400FAE7C1 /* ScrollLabel.swift */; };
+		F187974B20B9C4B000FAE7C1 /* TestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F187974A20B9C4B000FAE7C1 /* TestStoryboard.storyboard */; };
+		F187974E20B9CC3C00FAE7C1 /* BurgerMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187974D20B9CC3C00FAE7C1 /* BurgerMenuView.swift */; };
+		F187975120B9CCD700FAE7C1 /* OpcaityControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187975020B9CCD700FAE7C1 /* OpcaityControl.swift */; };
+		F187975320B9DAAD00FAE7C1 /* BottomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187975220B9DAAD00FAE7C1 /* BottomButtons.swift */; };
+		F187975520B9E2E600FAE7C1 /* UIColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187975420B9E2E600FAE7C1 /* UIColors.swift */; };
+		F187975720B9E71200FAE7C1 /* PaintingButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187975620B9E71200FAE7C1 /* PaintingButtons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +53,15 @@
 		9E9A018D20B99FDD00475D5C /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		BF7B366F9E2EA8DDCCDC8E83 /* Pods_HackArt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackArt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CB88884DA031ED4E64D4B4 /* Pods-HackArt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackArt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackArt/Pods-HackArt.debug.xcconfig"; sourceTree = "<group>"; };
+		F187974120B9B89B00FAE7C1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F187974520B9C23E00FAE7C1 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		F187974820B9C31400FAE7C1 /* ScrollLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollLabel.swift; sourceTree = "<group>"; };
+		F187974A20B9C4B000FAE7C1 /* TestStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestStoryboard.storyboard; sourceTree = "<group>"; };
+		F187974D20B9CC3C00FAE7C1 /* BurgerMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurgerMenuView.swift; sourceTree = "<group>"; };
+		F187975020B9CCD700FAE7C1 /* OpcaityControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpcaityControl.swift; sourceTree = "<group>"; };
+		F187975220B9DAAD00FAE7C1 /* BottomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtons.swift; sourceTree = "<group>"; };
+		F187975420B9E2E600FAE7C1 /* UIColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColors.swift; sourceTree = "<group>"; };
+		F187975620B9E71200FAE7C1 /* PaintingButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingButtons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +96,8 @@
 		340CC66C20B9B582001FF0E0 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				F187974F20B9CCC100FAE7C1 /* buttons */,
+				F187974420B9C21A00FAE7C1 /* Views */,
 				340CC66D20B9B582001FF0E0 /* UIKit */,
 				340CC67020B9B582001FF0E0 /* controllers */,
 			);
@@ -113,6 +133,7 @@
 		340CC67520B9B582001FF0E0 /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				F187974020B9B86B00FAE7C1 /* Home */,
 				340CC67620B9B582001FF0E0 /* paintingMap */,
 			);
 			path = modules;
@@ -175,8 +196,46 @@
 			isa = PBXGroup;
 			children = (
 				9E9A018D20B99FDD00475D5C /* Constraints.swift */,
+				F187975420B9E2E600FAE7C1 /* UIColors.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F187974020B9B86B00FAE7C1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F187974C20B9C95300FAE7C1 /* TopLabel */,
+				F187974120B9B89B00FAE7C1 /* HomeViewController.swift */,
+				F187974A20B9C4B000FAE7C1 /* TestStoryboard.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F187974420B9C21A00FAE7C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F187974520B9C23E00FAE7C1 /* PopUpView.swift */,
+				F187974820B9C31400FAE7C1 /* ScrollLabel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F187974C20B9C95300FAE7C1 /* TopLabel */ = {
+			isa = PBXGroup;
+			children = (
+				F187974D20B9CC3C00FAE7C1 /* BurgerMenuView.swift */,
+			);
+			path = TopLabel;
+			sourceTree = "<group>";
+		};
+		F187974F20B9CCC100FAE7C1 /* buttons */ = {
+			isa = PBXGroup;
+			children = (
+				F187975020B9CCD700FAE7C1 /* OpcaityControl.swift */,
+				F187975220B9DAAD00FAE7C1 /* BottomButtons.swift */,
+				F187975620B9E71200FAE7C1 /* PaintingButtons.swift */,
+			);
+			path = buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +301,7 @@
 				340CC67D20B9B582001FF0E0 /* asd.svg in Resources */,
 				340CC67C20B9B582001FF0E0 /* Untitled.sketch in Resources */,
 				341702E520B95017000C246C /* LaunchScreen.storyboard in Resources */,
+				F187974B20B9C4B000FAE7C1 /* TestStoryboard.storyboard in Resources */,
 				341702E220B95017000C246C /* Assets.xcassets in Resources */,
 				341702E020B95016000C246C /* Main.storyboard in Resources */,
 			);
@@ -293,15 +353,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F187974620B9C23E00FAE7C1 /* PopUpView.swift in Sources */,
 				340CC67E20B9B582001FF0E0 /* PaintingViewController.swift in Sources */,
 				341702DD20B95016000C246C /* ViewController.swift in Sources */,
 				340CC67A20B9B582001FF0E0 /* BasicViews.swift in Sources */,
 				340CC67920B9B582001FF0E0 /* BasicLayers.swift in Sources */,
+				F187974E20B9CC3C00FAE7C1 /* BurgerMenuView.swift in Sources */,
+				F187975720B9E71200FAE7C1 /* PaintingButtons.swift in Sources */,
 				9E9A018E20B99FDD00475D5C /* Constraints.swift in Sources */,
+				F187974220B9B89B00FAE7C1 /* HomeViewController.swift in Sources */,
 				9E9A018920B99E9700475D5C /* TuriCreate.mlmodel in Sources */,
+				F187975520B9E2E600FAE7C1 /* UIColors.swift in Sources */,
 				340CC67F20B9B582001FF0E0 /* PaintingView.swift in Sources */,
+				F187975320B9DAAD00FAE7C1 /* BottomButtons.swift in Sources */,
 				341702DB20B95016000C246C /* AppDelegate.swift in Sources */,
 				340CC67B20B9B582001FF0E0 /* BasicViewController.swift in Sources */,
+				F187975120B9CCD700FAE7C1 /* OpcaityControl.swift in Sources */,
+				F187974920B9C31400FAE7C1 /* ScrollLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,14 +515,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CB989UTT6M;
+				DEVELOPMENT_TEAM = 5XQQ8D847B;
 				INFOPLIST_FILE = HackArt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "pl.borocode.HackArt-PC-MO";
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.borocode.HackArt-PC-MO-TL";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -467,14 +535,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CB989UTT6M;
+				DEVELOPMENT_TEAM = 5XQQ8D847B;
 				INFOPLIST_FILE = HackArt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "pl.borocode.HackArt-PC-MO";
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.borocode.HackArt-PC-MO-TL";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
