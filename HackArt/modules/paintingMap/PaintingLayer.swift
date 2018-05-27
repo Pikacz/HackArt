@@ -187,11 +187,12 @@ class PaintingLayer: BasicLayer {
   private func createImage() -> CALayer {
     let result: CALayer = CALayer()
     result.contentsScale = UIScreen.main.scale
-    result.contents = #imageLiteral(resourceName: "god").cgImage
+    result.contents = painting.background?.cgImage ?? #imageLiteral(resourceName: "god").cgImage
     return result
   }
   
   private func imageFrame() -> CGRect {
+    
     return bounds
   }
 }

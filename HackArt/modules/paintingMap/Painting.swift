@@ -15,8 +15,10 @@ class Painting {
   
   
   
-  init(name: String, image: UIImage, backgroundIamge: UIImage? = nil) {
-    if let url: URL = Bundle.main.url(forResource: name, withExtension: "svg") {
+  init(name: String?, image: UIImage, backgroundIamge: UIImage? = nil) {
+    
+    if let name: String = name,
+       let url: URL = Bundle.main.url(forResource: name, withExtension: "svg") {
       var hit: [Int: SVGBezierPath] = [:]
       var highlight: [Int: SVGBezierPath] = [:]
       var frame: SVGBezierPath!
