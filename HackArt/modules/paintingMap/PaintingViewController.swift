@@ -14,7 +14,7 @@ class PaintingViewController: BasicViewController, PaintingViewDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let painting: Painting = Painting(name: "Witkacy", image: #imageLiteral(resourceName: "Bitmap"))!
+    let painting: Painting = Painting(name: "Witkacy", image: #imageLiteral(resourceName: "Bitmap"))
     paintingView?.display(painting: painting)
     
   }

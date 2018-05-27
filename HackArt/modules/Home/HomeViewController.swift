@@ -46,7 +46,7 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         addBurgerButton()
 
       
-        let painting: Painting = Painting(name: "Witkacy", image: #imageLiteral(resourceName: "Bitmap"))!
+        let painting: Painting = Painting(name: "Witkacy", image: #imageLiteral(resourceName: "Bitmap"))
         paintingView?.display(painting: painting)
 
         

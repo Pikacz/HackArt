@@ -6,29 +6,41 @@ class Painting {
   let hitPaths: [Int: SVGBezierPath]
   let highlightPaths: [Int: SVGBezierPath]
   let framePath: SVGBezierPath
+  let background: UIImage?
   
   let image: UIImage
   
   
-  init?(name: String, image: UIImage) {
-    guard let url: URL = Bundle.main.url(forResource: name, withExtension: "svg") else { return nil }
-    var hit: [Int: SVGBezierPath] = [:]
-    var highlight: [Int: SVGBezierPath] = [:]
-    var frame: SVGBezierPath!
-    
-    for path: SVGBezierPath in SVGBezierPath.pathsFromSVG(at: url) {
-      if Painting.isFrame(path: path) {
-        frame = path
-      } else if let hitId: Int = Painting.hitId(path: path) {
-        hit[hitId] = path
-      } else if let highlightId: Int = Painting.highlightId(path: path) {
-        highlight[highlightId] = path
+
+  
+  
+  
+  init(name: String, image: UIImage, backgroundIamge: UIImage? = nil) {
+    if let url: URL = Bundle.main.url(forResource: name, withExtension: "svg") {
+      var hit: [Int: SVGBezierPath] = [:]
+      var highlight: [Int: SVGBezierPath] = [:]
+      var frame: SVGBezierPath!
+      
+      for path: SVGBezierPath in SVGBezierPath.pathsFromSVG(at: url) {
+        if Painting.isFrame(path: path) {
+          frame = path
+        } else if let hitId: Int = Painting.hitId(path: path) {
+          hit[hitId] = path
+        } else if let highlightId: Int = Painting.highlightId(path: path) {
+          highlight[highlightId] = path
+        }
       }
+      self.hitPaths = hit
+      self.highlightPaths = highlight
+      self.framePath = frame
+    } else {
+      self.hitPaths = [:]
+      self.highlightPaths = [:]
+      self.framePath = SVGBezierPath(rect: CGRect.zero)
     }
-    self.hitPaths = hit
-    self.highlightPaths = highlight
-    self.framePath = frame
+    
     self.image = image
+    self.background = backgroundIamge
   }
   
   
