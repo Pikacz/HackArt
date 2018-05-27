@@ -22,6 +22,7 @@
 		34C39D0920B9EF0E00A09B5A /* PaintingViewScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C39D0620B9EF0E00A09B5A /* PaintingViewScroll.swift */; };
 		34C39D0A20B9EF0E00A09B5A /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C39D0720B9EF0E00A09B5A /* Painting.swift */; };
 		34C39D0B20B9EF0E00A09B5A /* PaintingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C39D0820B9EF0E00A09B5A /* PaintingLayer.swift */; };
+		34C39D0D20BAAAE000A09B5A /* Witkacy.svg in Resources */ = {isa = PBXBuildFile; fileRef = 34C39D0C20BAAADF00A09B5A /* Witkacy.svg */; };
 		86EB118FB09CFD2BBFDC4EBE /* Pods_HackArt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7B366F9E2EA8DDCCDC8E83 /* Pods_HackArt.framework */; };
 		9E9A018920B99E9700475D5C /* TuriCreate.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A018820B99E9700475D5C /* TuriCreate.mlmodel */; };
 		9E9A018E20B99FDD00475D5C /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A018D20B99FDD00475D5C /* Constraints.swift */; };
@@ -54,6 +55,7 @@
 		34C39D0620B9EF0E00A09B5A /* PaintingViewScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingViewScroll.swift; sourceTree = "<group>"; };
 		34C39D0720B9EF0E00A09B5A /* Painting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Painting.swift; sourceTree = "<group>"; };
 		34C39D0820B9EF0E00A09B5A /* PaintingLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingLayer.swift; sourceTree = "<group>"; };
+		34C39D0C20BAAADF00A09B5A /* Witkacy.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Witkacy.svg; sourceTree = "<group>"; };
 		9085B6C34E7D0B44B7F81048 /* Pods-HackArt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackArt.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackArt/Pods-HackArt.release.xcconfig"; sourceTree = "<group>"; };
 		9E9A018820B99E9700475D5C /* TuriCreate.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TuriCreate.mlmodel; sourceTree = "<group>"; };
 		9E9A018D20B99FDD00475D5C /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		340CC67220B9B582001FF0E0 /* media */ = {
 			isa = PBXGroup;
 			children = (
+				34C39D0C20BAAADF00A09B5A /* Witkacy.svg */,
 				340CC67320B9B582001FF0E0 /* Untitled.sketch */,
 				340CC67420B9B582001FF0E0 /* asd.svg */,
 			);
@@ -308,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				340CC67D20B9B582001FF0E0 /* asd.svg in Resources */,
+				34C39D0D20BAAAE000A09B5A /* Witkacy.svg in Resources */,
 				340CC67C20B9B582001FF0E0 /* Untitled.sketch in Resources */,
 				341702E520B95017000C246C /* LaunchScreen.storyboard in Resources */,
 				F187974B20B9C4B000FAE7C1 /* TestStoryboard.storyboard in Resources */,
@@ -527,14 +531,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5XQQ8D847B;
+				DEVELOPMENT_TEAM = GU34X5QPPY;
 				INFOPLIST_FILE = HackArt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "pl.borocode.HackArt-PC-MO-TL";
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.borocode.HackArt-PC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -547,14 +551,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5XQQ8D847B;
+				DEVELOPMENT_TEAM = GU34X5QPPY;
 				INFOPLIST_FILE = HackArt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "pl.borocode.HackArt-PC-MO-TL";
+				PRODUCT_BUNDLE_IDENTIFIER = "pl.borocode.HackArt-PC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

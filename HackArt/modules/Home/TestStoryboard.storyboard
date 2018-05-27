@@ -20,7 +20,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UyS-UT-eVr" userLabel="PaintingView">
                                 <rect key="frame" x="24" y="88" width="327" height="423"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAJ-Az-eIf">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAJ-Az-eIf" customClass="PaintingViewScroll" customModule="HackArt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="388"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
@@ -102,6 +102,7 @@
                         <outlet property="filterBtn" destination="qte-lH-T4C" id="d1n-d2-WcH"/>
                         <outlet property="heartBtn" destination="ufd-hj-cUR" id="q1A-zX-MfT"/>
                         <outlet property="nextBtn" destination="F4f-Uu-daR" id="aZu-zp-FDu"/>
+                        <outlet property="paintingView" destination="hAJ-Az-eIf" id="jow-Eo-RBI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aTF-ER-9by" userLabel="First Responder" sceneMemberID="firstResponder"/>

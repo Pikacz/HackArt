@@ -4,7 +4,7 @@ import PocketSVG
 
 
 protocol PaintingViewDelegate: class {
-  func paintingView(_ view: PaintingView, didSelect index: Int)
+  func paintingView(_ view: PaintingView, didSelect id: Int)
 }
 
 

@@ -15,6 +15,8 @@ class PaintingViewScroll: BasicScrollView, UIScrollViewDelegate {
     addSubview(paintingView)
     maximumZoomScale = 4
     delegate = self
+    clipsToBounds = true
+    backgroundColor = UIColor.black
   }
   
   
