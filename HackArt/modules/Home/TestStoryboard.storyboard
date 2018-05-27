@@ -99,9 +99,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SjG-d6-yWs"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Oze-k3-P0a"/>
+                    <navigationItem key="navigationItem" id="Oze-k3-P0a">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="Srw-kA-drz"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="authorLbl" destination="kST-nq-LFg" id="5XI-zB-qJ1"/>
+                        <outlet property="cameraBarBtn" destination="Srw-kA-drz" id="XyK-Dx-iaf"/>
                         <outlet property="detectionBtn" destination="32v-UT-f2J" id="QDW-1G-AmB"/>
                         <outlet property="eyeBtn" destination="rUb-yV-OXF" id="KzP-Nd-ZHm"/>
                         <outlet property="filterBtn" destination="qte-lH-T4C" id="d1n-d2-WcH"/>

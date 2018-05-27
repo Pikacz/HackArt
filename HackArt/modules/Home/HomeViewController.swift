@@ -86,6 +86,7 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
             paintingView?.paintingDelegate = self
         }
     }
+    @IBOutlet weak var cameraBarBtn: UIBarButtonItem!
     
     @IBOutlet weak var paintToBtnsCnstr: NSLayoutConstraint!
     @IBOutlet weak var paintLeadCnstr: NSLayoutConstraint!
@@ -122,7 +123,6 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         setBottomBtns()
         setPaintingBtns()
         setPaintingView()
-
 
       
         addInfoConstraints()
@@ -285,15 +285,21 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         info.heightAnchor.constraint(equalToConstant: self.view.bounds.height * 0.5).isActive = true
         info.widthAnchor.constraint(equalToConstant: self.view.bounds.width * 0.8).isActive = true
     }
-    private func showInfo() {
-        print("showinfo")
+    
+    private func calculatePopUp() {
+        
+    }
+    
+    
+    private func showInfo(text: String, completion: () -> Void) {
         self.view.bringSubview(toFront: info)
         self.info.isHidden = false
+        info.text = text
         UIView.animate(withDuration: 0.5, animations: {
                 self.info.alpha = 1.0
                 self.info.isUserInteractionEnabled = true
         })
-        
+        completion()
     }
     
     
@@ -317,7 +323,11 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
       case 3: msg = "Zboczeniec!!!"
       default: break
       }
-      
+        
+//        showInfo(text: msg, completion: {
+//            self.paintingView?.set(id: index, hidden: true)
+//        })
+        
       showOkAlert(message: msg) {
         (_: UIAlertAction) in
         self.paintingView?.set(id: index, hidden: true)

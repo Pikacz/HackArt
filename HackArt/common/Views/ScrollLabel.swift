@@ -11,17 +11,17 @@ import UIKit
 
 class ScrollLabel: BasicScrollView {
     
-    private var layoutedFor: CGRect?
+    var layoutedFor: CGRect?
     let label: UILabel = {
         let label: UILabel = UILabel()
         label.numberOfLines = 0
-        label.backgroundColor = .clear
-        
+        label.backgroundColor = .yellow
         return label
     }()
     var text: String? {
         get { return label.text }
         set {
+            label.frame = CGRect.zero
             label.text = newValue
             calculateContentSize()
         }
@@ -41,9 +41,10 @@ class ScrollLabel: BasicScrollView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        print("layouting scrollLabel before")
         guard label.frame != layoutedFor else { return }
         calculateContentSize()
-        
+        print("layouting scrollLabel after")
         label.frame = CGRect(origin: CGPoint.zero, size: contentSize)
         layoutedFor = label.frame
     }
