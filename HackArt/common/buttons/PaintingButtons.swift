@@ -24,7 +24,7 @@ class PaintingButtons: OpacityControl {
     override func initialize() {
         self.addSubview(imageView)
         self.layer.cornerRadius = CGFloat(2)
-        
+        self.backgroundColor = .clear
         addImageViewConstraints()
     }
     

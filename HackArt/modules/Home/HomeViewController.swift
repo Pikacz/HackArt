@@ -10,7 +10,11 @@ import UIKit
 
 class HomeViewController: BasicViewController, PaintingViewDelegate {
 
-    let info: PopUpView = PopUpView()
+    let info: PopUpView = {
+       let pop = PopUpView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+        pop.isHidden = true
+        return pop
+    }()
     
     @IBOutlet weak var filterBtn: BottomButton!
     @IBOutlet weak var detectionBtn: BottomButton!
@@ -24,9 +28,10 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         }
     }
     
-    @IBOutlet weak var paintToBtnsCnstr: NSLayoutConstraint!
+    @IBOutlet var paintToBtnsCnstr: NSLayoutConstraint!
     @IBOutlet weak var paintLeadCnstr: NSLayoutConstraint!
     @IBOutlet weak var paintTopCnstr: NSLayoutConstraint!
+    private lazy var paintBottomCnstr: NSLayoutConstraint = paintStack.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
     
     @IBOutlet weak var paintStack: UIStackView!
     @IBOutlet weak var paintView: UIView!
@@ -40,21 +45,20 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         filterBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
         detectionBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
         eyeBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
-        eyeBtn.image = UIImage(named: "eyeIcon")
         heartBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
         nextBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
+        
         addBurgerButton()
-
+        setPaintingButtons()
       
         let painting: Painting = Painting(name: "Witkacy", image: #imageLiteral(resourceName: "Bitmap"))!
         paintingView?.display(painting: painting)
 
         
-//        paintStack.translatesAutoresizingMaskIntoConstraints = false
         self.view.bringSubview(toFront: paintStack)
         
         
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(paintingFullScreen))
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(animate))
 //        paintStack.addGestureRecognizer(tap)
         
 
@@ -107,24 +111,36 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
       }
     }
 
-    
+    @objc private func animate() {
+        if paintToBtnsCnstr.isActive == true {
+            paintingFullScreen()
+        } else {
+            paintingNormalScreen()
+        }
+    }
     @objc private func paintingFullScreen() {
-        UIView.animate(withDuration: 2, animations: {
+        self.paintToBtnsCnstr.isActive = false
+        UIView.animate(withDuration: 0.5, animations: {
             self.paintStack.arrangedSubviews.last?.isHidden = true
-            self.fullScrnConstraints(view: self.paintStack)
+            self.paintTopCnstr.constant = 0
+            self.paintLeadCnstr.constant = 0
+            self.paintBottomCnstr.isActive = true
             })
-//        paintStack.arrangedSubviews.last?.isHidden = true
-//        paintStack.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-//        paintStack.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-//        paintStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        
+    }
+    @objc private func paintingNormalScreen() {
+        self.paintBottomCnstr.isActive = false
+        self.paintStack.arrangedSubviews.last?.isHidden = false
+        UIView.animate(withDuration: 0.5, animations: {
+            self.paintTopCnstr.constant = 24
+            self.paintLeadCnstr.constant = 24
+            self.paintToBtnsCnstr.isActive = true
+        })
     }
     
-    private func fullScrnConstraints(view: UIView) {
-        
-        view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+    private func setPaintingButtons () {
+        eyeBtn.image = UIImage(named: "eyeIcon")
+        heartBtn.image = UIImage(named: "heartIcon")
+        nextBtn.image = UIImage(named: "rightArrowIcon")
     }
     
 
