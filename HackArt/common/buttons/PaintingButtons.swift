@@ -18,6 +18,8 @@ class PaintingButtons: OpacityControl {
     var image: UIImage? {
         didSet {
             imageView.image = image
+            imageView.image = imageView.image?.withRenderingMode(.alwaysTemplate)
+            imageView.tintColor = UIColor.app.white
         }
     }
     
