@@ -14,6 +14,11 @@ class PaintingView: BasicView {
   
   weak var delegate: PaintingViewDelegate?
   
+  var isBackgroundHidden: Bool {
+    get { return paintingLayer.isBackgroundHidden }
+    set { paintingLayer.isBackgroundHidden = newValue }
+  }
+  
   private var buttons: [AreaButton] = [] {
     willSet {
       for b: AreaButton in buttons {

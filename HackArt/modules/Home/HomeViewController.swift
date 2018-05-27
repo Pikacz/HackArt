@@ -41,6 +41,7 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     // MARK: - Paintings
     
     private let paintings: [OriginPainting] = OriginPainting.create()
+    private var currentPainting: OriginPainting? = nil
     
     
     override func viewDidLoad() {
@@ -48,6 +49,14 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
 
         self.view.addSubview(info)
         
+
+        filterBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
+        detectionBtn.addTarget(self, action: #selector(showDetectionVC), for: .touchUpInside)
+        eyeBtn.addTarget(self, action: #selector(updateBackgroundvisibility), for: .touchUpInside)
+        eyeBtn.image = UIImage(named: "eyeIcon")
+        heartBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
+        nextBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
+
         addBurgerButton()
         setLbls()
         setBottomBtns()
@@ -66,6 +75,7 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     }
     
     private func set(painting: OriginPainting) {
+        currentPainting = painting
         paintingView.display(painting: painting.painting)
         authorLbl.text = painting.author
         titleLbl.text = painting.title
@@ -115,6 +125,14 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     }
     
     @objc private func showNextPicture() {
+        guard paintings.count > 1 else { return }
+        guard let index = paintings.index(where: { $0.identifier == currentPainting?.identifier }) else { return }
+        guard index < paintings.count - 1 else {
+            let painting  = paintings[0]
+            set(painting: painting)
+            return }
+        let paintig = paintings[index + 1]
+        set(painting: paintig)
         print("showNextPicture")
     }
     
@@ -219,18 +237,33 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         })
     }
     
-
-  
+    
+    @objc func updateBackgroundvisibility() {
+        paintingView.isBackgroundHidden = !paintingView.isBackgroundHidden
+    }
     // MARK: PaintingViewDelegate
     func paintingView(_ view: PaintingView, didSelect index: Int) {
       var msg: String = ""
       switch index {
-      case 1: msg = "Ciekawostka 1"
+      case 1: msg = """
+        Kuropatwę myjemy, osuszamy, całą dokładnie nacieramy solą, pieprzem, jałowcem i czosnkiem,
+        tak natartą wkładamy do lodówki na 12 godzin. Następnie cienkimi plasterkami słoniny i boczku
+        obkładamy całego ptaka, zapewni to jędrność mięsa. Przygotowaną kuropatwę wkładamy do naczynia
+        żaroodpornego i wkładamy do piekarnika na 280 stopni na 30-40 minut, podczas pieczenia polewać
+        czerwonym wytrawnym winem. Gotową odstawić w ciepłe miejsce na około 15 minut, w tym czasie na
+        płynie z pieczenia przygotowujemy sos, dodajemy grzyby, śliwki wędzone, przyprawy i gotujemy aż
+        płyn się zredukuje, gotowym polewamy ptaki, układamy na talerzu z buraczkami i zieleniną.
+        """
       case 2: msg = "Pedofil!!!"
       case 3: msg = "Zboczeniec!!!"
       default: break
       }
+<<<<<<< HEAD
       showOkAlert(title: "elo", message: msg) {
+=======
+      
+      showOkAlert(message: msg) {
+>>>>>>> 019f0cd92e767855c77a4ba6d86699998c856aaa
         (_: UIAlertAction) in
         self.paintingView?.set(id: index, hidden: true)
       }
@@ -243,7 +276,7 @@ extension HomeViewController: CameraViewControllerFlow {
     func didFound(tag: Tag) {
         self.navigationController?.popViewController(animated: true)
         guard let painting = paintings.first(where: { $0.tags.contains(tag) }) else { return }
-        paintingView.display(painting: painting.painting)
+        set(painting: painting)
     }
     
 }
