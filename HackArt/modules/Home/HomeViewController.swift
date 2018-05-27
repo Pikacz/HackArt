@@ -30,6 +30,7 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
           paintingView?.paintingDelegate = self
         }
     }
+    @IBOutlet weak var cameraBarBtn: UIBarButtonItem!
     
     @IBOutlet weak var paintToBtnsCnstr: NSLayoutConstraint!
     @IBOutlet weak var paintLeadCnstr: NSLayoutConstraint!
@@ -53,12 +54,10 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         setPaintingBtns()
         setPaintingView()
 
-
       
         addInfoConstraints()
 
         self.view.bringSubview(toFront: paintStack)
-        showInfo()
 
         if let painting = paintings.first {
             set(painting: painting)
@@ -183,10 +182,14 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         let barButton: UIBarButtonItem = UIBarButtonItem(customView: barButtonView)
         self.navigationItem.leftBarButtonItem = barButton
         
-        let rightbarButtonView = ProfileButtonView()
-        rightbarButtonView.addTarget(self, action: #selector(showPaintingFinder), for: .touchUpInside)
-        let rightbarButton: UIBarButtonItem = UIBarButtonItem(customView: rightbarButtonView)
-        self.navigationItem.rightBarButtonItem = rightbarButton
+        cameraBarBtn.action = #selector(showPaintingFinder)
+        cameraBarBtn.target = self
+        cameraBarBtn.tintColor = .black
+//            .addTarget(self, action: #selector(showPaintingFinder), for: .touchUpInside)
+//        let rightbarButtonView = ProfileButtonView()
+//        rightbarButtonView.addTarget(self, action: #selector(showPaintingFinder), for: .touchUpInside)
+//        let rightbarButton: UIBarButtonItem = UIBarButtonItem(customView: rightbarButtonView)
+//        self.navigationItem.rightBarButtonItem = rightbarButton
     }
     
     @objc private func burgerMenu() {
@@ -200,15 +203,20 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         info.heightAnchor.constraint(equalToConstant: self.view.bounds.height * 0.5).isActive = true
         info.widthAnchor.constraint(equalToConstant: self.view.bounds.width * 0.8).isActive = true
     }
-    private func showInfo() {
-        print("showinfo")
+    
+    private func calculatePopUp() {
+        
+    }
+    
+    
+    private func showInfo(text: String) {
         self.view.bringSubview(toFront: info)
         self.info.isHidden = false
+        info.text = text
         UIView.animate(withDuration: 0.5, animations: {
                 self.info.alpha = 1.0
                 self.info.isUserInteractionEnabled = true
         })
-        
     }
     
 
@@ -222,7 +230,6 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
       case 3: msg = "Zboczeniec!!!"
       default: break
       }
-      
       showOkAlert(title: "elo", message: msg) {
         (_: UIAlertAction) in
         self.paintingView?.set(id: index, hidden: true)

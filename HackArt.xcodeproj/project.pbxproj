@@ -40,6 +40,7 @@
 		F187975720B9E71200FAE7C1 /* PaintingButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187975620B9E71200FAE7C1 /* PaintingButtons.swift */; };
 		F187975920BAA01D00FAE7C1 /* BurgerMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187975820BAA01C00FAE7C1 /* BurgerMenuView.swift */; };
 		F187976520BADAAB00FAE7C1 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187976420BADAAB00FAE7C1 /* BackgroundView.swift */; };
+		F187976720BAF34100FAE7C1 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187976620BAF34100FAE7C1 /* InfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		F187975620B9E71200FAE7C1 /* PaintingButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingButtons.swift; sourceTree = "<group>"; };
 		F187975820BAA01C00FAE7C1 /* BurgerMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BurgerMenuView.swift; sourceTree = "<group>"; };
 		F187976420BADAAB00FAE7C1 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		F187976620BAF34100FAE7C1 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +265,7 @@
 				F187974520B9C23E00FAE7C1 /* PopUpView.swift */,
 				F187974820B9C31400FAE7C1 /* ScrollLabel.swift */,
 				F187976420BADAAB00FAE7C1 /* BackgroundView.swift */,
+				F187976620BAF34100FAE7C1 /* InfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				340CC67A20B9B582001FF0E0 /* BasicViews.swift in Sources */,
 				34C39D1520BAB2F700A09B5A /* CameraOrientation.swift in Sources */,
 				340CC67920B9B582001FF0E0 /* BasicLayers.swift in Sources */,
+				F187976720BAF34100FAE7C1 /* InfoView.swift in Sources */,
 				34C39D0B20B9EF0E00A09B5A /* PaintingLayer.swift in Sources */,
 				F187975720B9E71200FAE7C1 /* PaintingButtons.swift in Sources */,
 				34C39D1620BAB2F700A09B5A /* Camera.swift in Sources */,

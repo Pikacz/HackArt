@@ -28,13 +28,16 @@ class PopUpView: BasicView {
     }()
     
     
-    var scrollLbl: ScrollLabel = {
+    private var scrollLbl: ScrollLabel = {
         let scrollLbl: ScrollLabel = ScrollLabel()
         scrollLbl.translatesAutoresizingMaskIntoConstraints = false
-        scrollLbl.text = text
         return scrollLbl
     }()
-    
+    var text: String = "" {
+        didSet {
+            scrollLbl.text = text
+        }
+    }
     
     @objc func dismissView() {
         UIView.animate(withDuration: 0.3, delay: 0.1,
@@ -73,7 +76,6 @@ class PopUpView: BasicView {
     }
     
     func addScrollLblConstraints () {
-        
         scrollLbl.topAnchor.constraint(equalTo: self.topAnchor, constant: 16.0).isActive = true
         scrollLbl.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16.0).isActive = true
         scrollLbl.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16.0).isActive = true
@@ -81,7 +83,6 @@ class PopUpView: BasicView {
     }
     
     func addButtonConstraints () {
-        
         button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -6.0).isActive = true
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
@@ -96,6 +97,10 @@ class PopUpView: BasicView {
                        animations: {
                         self.transform = CGAffineTransform.identity
                         self.alpha = 1.0 }, completion: nil)
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        print("layouting popup")
     }
     
 }
