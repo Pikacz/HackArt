@@ -14,7 +14,7 @@ fileprivate let profileIconName: String = "BurgerMenu"
 class ProfileButtonView: OpacityControl {
     
     private let profileImage: UIImageView = {
-        let img: UIImageView = UIImageView(image: UIImage(named: profileIconName))
+        let img: UIImageView = UIImageView()
         img.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         return img
     }()
@@ -24,6 +24,9 @@ class ProfileButtonView: OpacityControl {
         setView()
     }
     
+    func set(image: UIImage) {
+        profileImage.image = image
+    }
     
     private func setView() {
         self.frame = profileImage.bounds

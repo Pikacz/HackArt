@@ -41,6 +41,7 @@ class PaintingViewScroll: BasicScrollView, UIScrollViewDelegate {
   
   
   func display(painting: Painting) {
+    zoomScale = 1.0
     paintingView.display(painting: painting)
   }
   
