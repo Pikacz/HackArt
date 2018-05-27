@@ -13,15 +13,18 @@ import Vision
 class HomeViewController: BasicViewController, PaintingViewDelegate {
 
     private weak var tagFinder: UIViewController?
-    
-    let info: PopUpView = PopUpView()
-
+    let info: PopUpView = {
+        let pop = PopUpView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+        pop.alpha = 0.0
+        return pop
+    }()
     @IBOutlet weak var filterBtn: BottomButton!
     @IBOutlet weak var detectionBtn: BottomButton!
     @IBOutlet weak var eyeBtn: PaintingButtons!
     @IBOutlet weak var heartBtn: PaintingButtons!
     @IBOutlet weak var nextBtn: PaintingButtons!
-  
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var authorLbl: UILabel!
     @IBOutlet weak var paintingView: PaintingViewScroll! {
         didSet {
           paintingView?.paintingDelegate = self
@@ -33,7 +36,6 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     @IBOutlet weak var paintTopCnstr: NSLayoutConstraint!
     
     @IBOutlet weak var paintStack: UIStackView!
-    @IBOutlet weak var paintView: UIView!
     
     // MARK: - Paintings
     
@@ -44,35 +46,77 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         super.viewDidLoad()
 
         self.view.addSubview(info)
-        filterBtn.text = "dupsra"
-        filterBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
-        detectionBtn.addTarget(self, action: #selector(showDetectionVC), for: .touchUpInside)
-        eyeBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
-        eyeBtn.image = UIImage(named: "eyeIcon")
-        heartBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
-        nextBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
+        
         addBurgerButton()
+        setLbls()
+        setBottomBtns()
+        setPaintingBtns()
+        setPaintingView()
 
 
       
-        
+        addInfoConstraints()
 
-        
-//        paintStack.translatesAutoresizingMaskIntoConstraints = false
+        self.view.bringSubview(toFront: paintStack)
+        showInfo()
 
         if let painting = paintings.first {
             set(painting: painting)
         }
 
-        self.view.bringSubview(toFront: paintStack)
     }
     
     private func set(painting: OriginPainting) {
         paintingView.display(painting: painting.painting)
+        authorLbl.text = painting.author
+        titleLbl.text = painting.title
+    }
+    
+    private func setLbls() {
+        authorLbl.adjustsFontSizeToFitWidth = true
+        authorLbl.font = authorLbl.font.withSize(14)
+        titleLbl.adjustsFontSizeToFitWidth = true
+        titleLbl.numberOfLines = 2
+    }
+    
+    private func setPaintingBtns() {
+        eyeBtn.image = UIImage(named: "eyeIcon")
+        heartBtn.image = UIImage(named: "heartIcon")
+        nextBtn.image = UIImage(named: "rightArrowIcon")
+        eyeBtn.addTarget(self, action: #selector(showBottomPainting), for: .touchUpInside)
+        heartBtn.addTarget(self, action: #selector(addToFavourites), for: .touchUpInside)
+        nextBtn.addTarget(self, action: #selector(showNextPicture), for: .touchUpInside)
+    }
+    
+    private func setBottomBtns() {
+        filterBtn.text = "FILTR"
+        detectionBtn.text = "DETEKCJA"
+        filterBtn.addTarget(self, action: #selector(showFilter), for: .touchUpInside)
+        detectionBtn.addTarget(self, action: #selector(showDetectionVC), for: .touchUpInside)
+    }
+    
+    private func setPaintingView() {
+        paintingView.layer.cornerRadius = CGFloat(10)
     }
     
     @objc func dupa() {
         print("dupa")
+    }
+    
+    @objc private func showFilter() {
+        print("FILTER")
+    }
+    
+    @objc private func showBottomPainting() {
+        print("showBottomPainting")
+    }
+    
+    @objc private func addToFavourites() {
+        print("addToFavourites")
+    }
+    
+    @objc private func showNextPicture() {
+        print("showNextPicture")
     }
     
     @objc func showDetectionVC() {
@@ -156,6 +200,17 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         info.heightAnchor.constraint(equalToConstant: self.view.bounds.height * 0.5).isActive = true
         info.widthAnchor.constraint(equalToConstant: self.view.bounds.width * 0.8).isActive = true
     }
+    private func showInfo() {
+        print("showinfo")
+        self.view.bringSubview(toFront: info)
+        self.info.isHidden = false
+        UIView.animate(withDuration: 0.5, animations: {
+                self.info.alpha = 1.0
+                self.info.isUserInteractionEnabled = true
+        })
+        
+    }
+    
 
   
     // MARK: PaintingViewDelegate
@@ -173,26 +228,7 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         self.paintingView?.set(id: index, hidden: true)
       }
     }
-
     
-    @objc private func paintingFullScreen() {
-        UIView.animate(withDuration: 2, animations: {
-            self.paintStack.arrangedSubviews.last?.isHidden = true
-            self.fullScrnConstraints(view: self.paintStack)
-            })
-//        paintStack.arrangedSubviews.last?.isHidden = true
-//        paintStack.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-//        paintStack.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-//        paintStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        
-    }
-    
-    private func fullScrnConstraints(view: UIView) {
-        
-        view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-    }
 }
 
 extension HomeViewController: CameraViewControllerFlow {

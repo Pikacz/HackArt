@@ -18,13 +18,15 @@ class PaintingButtons: OpacityControl {
     var image: UIImage? {
         didSet {
             imageView.image = image
+            imageView.image = imageView.image?.withRenderingMode(.alwaysTemplate)
+            imageView.tintColor = UIColor.app.white
         }
     }
     
     override func initialize() {
         self.addSubview(imageView)
         self.layer.cornerRadius = CGFloat(2)
-        
+        self.backgroundColor = .clear
         addImageViewConstraints()
     }
     

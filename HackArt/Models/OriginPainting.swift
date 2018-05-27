@@ -29,26 +29,19 @@ struct OriginPainting {
     static func create() -> [OriginPainting] {
         return [
           OriginPainting(
-            painting: Painting(name: nil, image: #imageLiteral(resourceName: "sredniowiecze")),
-            title: "Wit",
-            author: "Wit",
-            tags: [Tag.snieg],
-            identifier: "sredniowiecze"
-          ),
-          OriginPainting(
-            painting: Painting(name: "Witkacy", image: #imageLiteral(resourceName: "Bitmap")),
+            painting: Painting(name: "Witkacy", image: #imageLiteral(resourceName: "Bitmap"), backgroundIamge: #imageLiteral(resourceName: "wit_bg")),
             title: "Kompozycja fantastyczna",
             author: "Witkiewicz, Stanisław Ignacy",
             tags: [Tag.slonko],
             identifier: "witkacy"
           ),
           OriginPainting(
-            painting: Painting(name: "Swinka", image: #imageLiteral(resourceName: "radość")),
+            painting: Painting(name: "Swinka", image: #imageLiteral(resourceName: "radosc")),
             title: "Zabawka na kiju \"Świnka\"",
             author: "Kurzątkowski, Jan",
             tags: [Tag.radosc],
             identifier: "swiniak"
-          ),
+            ),
           OriginPainting(
             painting: Painting(name: "przepiorki", image: #imageLiteral(resourceName: "przepiorki")),
             title: "Kuropatwy na śniegu",
@@ -62,9 +55,24 @@ struct OriginPainting {
             author: "Wróblewski, Andrzej",
             tags: [Tag.smutek],
             identifier: "smutek"
-          )
+          ),
+          OriginPainting(
+            painting: Painting(name: "Sredniowiecze", image: #imageLiteral(resourceName: "sredniowiecze")),
+            title: "Roztrzelanie",
+            author: "Wróblewski, Andrzej",
+            tags: [Tag.smutek],
+            identifier: "sredniowiecze"
+            )
         ]
     }
-    
+}
+
+fileprivate let birdsBgs: [UIImage] = [#imageLiteral(resourceName: "przep_bg1"), #imageLiteral(resourceName: "przep_bg2")]
+
+fileprivate func randBird() -> UIImage {
+  let r = arc4random()
+  print(r)
+  let idx = r % 2
+  return birdsBgs[Int(idx)]
 }
 
