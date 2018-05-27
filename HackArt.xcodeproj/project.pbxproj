@@ -28,6 +28,9 @@
 		9E9A019920B9CF9500475D5C /* OriginPainting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A019820B9CF9500475D5C /* OriginPainting.swift */; };
 		9E9A019B20B9D0CE00475D5C /* 0017.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E9A019A20B9D0CE00475D5C /* 0017.jpg */; };
 		9E9A019D20B9DB3C00475D5C /* CameraOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A019C20B9DB3C00475D5C /* CameraOrientation.swift */; };
+		9E9A01A220BAAD0200475D5C /* radość.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E9A019F20BAAD0100475D5C /* radość.jpg */; };
+		9E9A01A320BAAD0200475D5C /* spokój.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E9A01A020BAAD0200475D5C /* spokój.jpg */; };
+		9E9A01A420BAAD0200475D5C /* smutek.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E9A01A120BAAD0200475D5C /* smutek.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,9 @@
 		9E9A019820B9CF9500475D5C /* OriginPainting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginPainting.swift; sourceTree = "<group>"; };
 		9E9A019A20B9D0CE00475D5C /* 0017.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0017.jpg; sourceTree = "<group>"; };
 		9E9A019C20B9DB3C00475D5C /* CameraOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraOrientation.swift; sourceTree = "<group>"; };
+		9E9A019F20BAAD0100475D5C /* radość.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "radość.jpg"; sourceTree = "<group>"; };
+		9E9A01A020BAAD0200475D5C /* spokój.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "spokój.jpg"; sourceTree = "<group>"; };
+		9E9A01A120BAAD0200475D5C /* smutek.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smutek.jpg; sourceTree = "<group>"; };
 		BF7B366F9E2EA8DDCCDC8E83 /* Pods_HackArt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackArt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CB88884DA031ED4E64D4B4 /* Pods-HackArt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackArt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackArt/Pods-HackArt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +166,7 @@
 		341702D920B95016000C246C /* HackArt */ = {
 			isa = PBXGroup;
 			children = (
+				9E9A019E20BAACDE00475D5C /* Images */,
 				9E9A019720B9CF7500475D5C /* Models */,
 				9E9A019020B9CA6D00475D5C /* CameraDetection */,
 				9E9A018F20B99FE000475D5C /* Extensions */,
@@ -173,7 +180,6 @@
 				341702E120B95017000C246C /* Assets.xcassets */,
 				341702E320B95017000C246C /* LaunchScreen.storyboard */,
 				341702E620B95017000C246C /* Info.plist */,
-				9E9A019A20B9D0CE00475D5C /* 0017.jpg */,
 			);
 			path = HackArt;
 			sourceTree = "<group>";
@@ -211,6 +217,17 @@
 				9E9A019820B9CF9500475D5C /* OriginPainting.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9E9A019E20BAACDE00475D5C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9E9A019F20BAAD0100475D5C /* radość.jpg */,
+				9E9A01A120BAAD0200475D5C /* smutek.jpg */,
+				9E9A01A020BAAD0200475D5C /* spokój.jpg */,
+				9E9A019A20B9D0CE00475D5C /* 0017.jpg */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,8 +290,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E9A01A220BAAD0200475D5C /* radość.jpg in Resources */,
+				9E9A01A320BAAD0200475D5C /* spokój.jpg in Resources */,
 				340CC67D20B9B582001FF0E0 /* asd.svg in Resources */,
 				340CC67C20B9B582001FF0E0 /* Untitled.sketch in Resources */,
+				9E9A01A420BAAD0200475D5C /* smutek.jpg in Resources */,
 				341702E520B95017000C246C /* LaunchScreen.storyboard in Resources */,
 				341702E220B95017000C246C /* Assets.xcassets in Resources */,
 				341702E020B95016000C246C /* Main.storyboard in Resources */,
