@@ -17,10 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UyS-UT-eVr" userLabel="PaintingView">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UyS-UT-eVr" userLabel="PaintingStackView">
                                 <rect key="frame" x="24" y="88" width="327" height="423"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAJ-Az-eIf">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAJ-Az-eIf" userLabel="PaintingView">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="388"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
@@ -89,7 +89,7 @@
                             <constraint firstItem="5VR-IL-5dT" firstAttribute="top" secondItem="vtm-GC-DqH" secondAttribute="bottom" constant="18" id="NEk-4s-jFw"/>
                             <constraint firstItem="UyS-UT-eVr" firstAttribute="centerX" secondItem="B93-KB-76f" secondAttribute="centerX" id="RbB-DD-Kt8"/>
                             <constraint firstItem="5VR-IL-5dT" firstAttribute="leading" secondItem="B93-KB-76f" secondAttribute="leading" constant="24" id="Tst-gG-aaz"/>
-                            <constraint firstItem="vtm-GC-DqH" firstAttribute="top" secondItem="UyS-UT-eVr" secondAttribute="bottom" constant="18" id="XAM-W1-izR"/>
+                            <constraint firstItem="vtm-GC-DqH" firstAttribute="top" secondItem="UyS-UT-eVr" secondAttribute="bottom" priority="500" constant="18" id="XAM-W1-izR"/>
                             <constraint firstItem="vtm-GC-DqH" firstAttribute="leading" secondItem="SjG-d6-yWs" secondAttribute="leading" constant="50" id="aTS-Qv-ceP"/>
                             <constraint firstItem="SjG-d6-yWs" firstAttribute="bottom" secondItem="5VR-IL-5dT" secondAttribute="bottom" constant="20" id="yg4-c6-CE5"/>
                         </constraints>
@@ -102,6 +102,11 @@
                         <outlet property="filterBtn" destination="qte-lH-T4C" id="d1n-d2-WcH"/>
                         <outlet property="heartBtn" destination="ufd-hj-cUR" id="q1A-zX-MfT"/>
                         <outlet property="nextBtn" destination="F4f-Uu-daR" id="aZu-zp-FDu"/>
+                        <outlet property="paintLeadCnstr" destination="2pC-q1-OKI" id="5th-aM-rtf"/>
+                        <outlet property="paintStack" destination="UyS-UT-eVr" id="EJ3-bg-T2n"/>
+                        <outlet property="paintToBtnsCnstr" destination="XAM-W1-izR" id="xJN-oH-CZX"/>
+                        <outlet property="paintTopCnstr" destination="JVs-x7-RhO" id="kTA-Ed-WDV"/>
+                        <outlet property="paintView" destination="hAJ-Az-eIf" id="lrb-V8-zEl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aTF-ER-9by" userLabel="First Responder" sceneMemberID="firstResponder"/>

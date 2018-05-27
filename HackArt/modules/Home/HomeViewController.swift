@@ -18,6 +18,14 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var heartBtn: PaintingButtons!
     @IBOutlet weak var nextBtn: PaintingButtons!
     
+    @IBOutlet weak var paintToBtnsCnstr: NSLayoutConstraint!
+    @IBOutlet weak var paintLeadCnstr: NSLayoutConstraint!
+    @IBOutlet weak var paintTopCnstr: NSLayoutConstraint!
+    
+    @IBOutlet weak var paintStack: UIStackView!
+    @IBOutlet weak var paintView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +38,14 @@ class HomeViewController: UIViewController {
         heartBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
         nextBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
         addBurgerButton()
+        
+//        paintStack.translatesAutoresizingMaskIntoConstraints = false
+        self.view.bringSubview(toFront: paintStack)
+        
+        
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(paintingFullScreen))
+//        paintStack.addGestureRecognizer(tap)
+        
     }
     
     @objc func dupa() {
@@ -42,6 +58,7 @@ class HomeViewController: UIViewController {
         barButtonView.addTarget(self, action: #selector(burgerMenu), for: .touchUpInside)
         let barButton: UIBarButtonItem = UIBarButtonItem(customView: barButtonView)
         self.navigationItem.leftBarButtonItem = barButton
+        
     }
     
     @objc private func burgerMenu() {
@@ -54,6 +71,25 @@ class HomeViewController: UIViewController {
         info.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         info.heightAnchor.constraint(equalToConstant: self.view.bounds.height * 0.5).isActive = true
         info.widthAnchor.constraint(equalToConstant: self.view.bounds.width * 0.8).isActive = true
+    }
+    
+    @objc private func paintingFullScreen() {
+        UIView.animate(withDuration: 2, animations: {
+            self.paintStack.arrangedSubviews.last?.isHidden = true
+            self.fullScrnConstraints(view: self.paintStack)
+            })
+//        paintStack.arrangedSubviews.last?.isHidden = true
+//        paintStack.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+//        paintStack.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+//        paintStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        
+    }
+    
+    private func fullScrnConstraints(view: UIView) {
+        
+        view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
     }
     
 }

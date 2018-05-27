@@ -29,11 +29,11 @@
 		F187974620B9C23E00FAE7C1 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187974520B9C23E00FAE7C1 /* PopUpView.swift */; };
 		F187974920B9C31400FAE7C1 /* ScrollLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187974820B9C31400FAE7C1 /* ScrollLabel.swift */; };
 		F187974B20B9C4B000FAE7C1 /* TestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F187974A20B9C4B000FAE7C1 /* TestStoryboard.storyboard */; };
-		F187974E20B9CC3C00FAE7C1 /* BurgerMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187974D20B9CC3C00FAE7C1 /* BurgerMenuView.swift */; };
 		F187975120B9CCD700FAE7C1 /* OpcaityControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187975020B9CCD700FAE7C1 /* OpcaityControl.swift */; };
 		F187975320B9DAAD00FAE7C1 /* BottomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187975220B9DAAD00FAE7C1 /* BottomButtons.swift */; };
 		F187975520B9E2E600FAE7C1 /* UIColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187975420B9E2E600FAE7C1 /* UIColors.swift */; };
 		F187975720B9E71200FAE7C1 /* PaintingButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187975620B9E71200FAE7C1 /* PaintingButtons.swift */; };
+		F187975920BAA01D00FAE7C1 /* BurgerMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F187975820BAA01C00FAE7C1 /* BurgerMenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,11 +63,11 @@
 		F187974520B9C23E00FAE7C1 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		F187974820B9C31400FAE7C1 /* ScrollLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollLabel.swift; sourceTree = "<group>"; };
 		F187974A20B9C4B000FAE7C1 /* TestStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestStoryboard.storyboard; sourceTree = "<group>"; };
-		F187974D20B9CC3C00FAE7C1 /* BurgerMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurgerMenuView.swift; sourceTree = "<group>"; };
 		F187975020B9CCD700FAE7C1 /* OpcaityControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpcaityControl.swift; sourceTree = "<group>"; };
 		F187975220B9DAAD00FAE7C1 /* BottomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtons.swift; sourceTree = "<group>"; };
 		F187975420B9E2E600FAE7C1 /* UIColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColors.swift; sourceTree = "<group>"; };
 		F187975620B9E71200FAE7C1 /* PaintingButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingButtons.swift; sourceTree = "<group>"; };
+		F187975820BAA01C00FAE7C1 /* BurgerMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BurgerMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,7 +232,7 @@
 		F187974C20B9C95300FAE7C1 /* TopLabel */ = {
 			isa = PBXGroup;
 			children = (
-				F187974D20B9CC3C00FAE7C1 /* BurgerMenuView.swift */,
+				F187975820BAA01C00FAE7C1 /* BurgerMenuView.swift */,
 			);
 			path = TopLabel;
 			sourceTree = "<group>";
@@ -368,13 +368,13 @@
 				340CC67A20B9B582001FF0E0 /* BasicViews.swift in Sources */,
 				340CC67920B9B582001FF0E0 /* BasicLayers.swift in Sources */,
 				34C39D0B20B9EF0E00A09B5A /* PaintingLayer.swift in Sources */,
-				F187974E20B9CC3C00FAE7C1 /* BurgerMenuView.swift in Sources */,
 				F187975720B9E71200FAE7C1 /* PaintingButtons.swift in Sources */,
 				9E9A018E20B99FDD00475D5C /* Constraints.swift in Sources */,
 				F187974220B9B89B00FAE7C1 /* HomeViewController.swift in Sources */,
 				9E9A018920B99E9700475D5C /* TuriCreate.mlmodel in Sources */,
 				F187975520B9E2E600FAE7C1 /* UIColors.swift in Sources */,
 				34C39D0A20B9EF0E00A09B5A /* Painting.swift in Sources */,
+				F187975920BAA01D00FAE7C1 /* BurgerMenuView.swift in Sources */,
 				34C39D0920B9EF0E00A09B5A /* PaintingViewScroll.swift in Sources */,
 				340CC67F20B9B582001FF0E0 /* PaintingView.swift in Sources */,
 				F187975320B9DAAD00FAE7C1 /* BottomButtons.swift in Sources */,
