@@ -13,7 +13,6 @@ import Vision
 class HomeViewController: BasicViewController, PaintingViewDelegate {
 
     private weak var tagFinder: UIViewController?
-    
     let info: PopUpView = {
         let pop = PopUpView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
         pop.alpha = 0.0
@@ -26,7 +25,6 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     @IBOutlet weak var nextBtn: PaintingButtons!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var authorLbl: UILabel!
-    
     @IBOutlet weak var paintingView: PaintingViewScroll! {
         didSet {
           paintingView?.paintingDelegate = self
@@ -42,24 +40,26 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     // MARK: - Paintings
     
     private let paintings: [OriginPainting] = OriginPainting.create()
+    private var currentPainting: OriginPainting? = nil
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.addSubview(info)
-        filterBtn.text = "FILTR"
-        detectionBtn.text = "DETEKCJA"
         
+
         filterBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
         detectionBtn.addTarget(self, action: #selector(showDetectionVC), for: .touchUpInside)
         eyeBtn.addTarget(self, action: #selector(updateBackgroundvisibility), for: .touchUpInside)
         eyeBtn.image = UIImage(named: "eyeIcon")
         heartBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
         nextBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
+
         addBurgerButton()
         setLbls()
-        setIcons()
+        setBottomBtns()
+        setPaintingBtns()
         setPaintingView()
 
 
@@ -76,22 +76,65 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     }
     
     private func set(painting: OriginPainting) {
+        currentPainting = painting
         paintingView.display(painting: painting.painting)
         authorLbl.text = painting.author
         titleLbl.text = painting.title
     }
+    
     private func setLbls() {
         authorLbl.adjustsFontSizeToFitWidth = true
         authorLbl.font = authorLbl.font.withSize(14)
         titleLbl.adjustsFontSizeToFitWidth = true
         titleLbl.numberOfLines = 2
     }
+    
+    private func setPaintingBtns() {
+        eyeBtn.image = UIImage(named: "eyeIcon")
+        heartBtn.image = UIImage(named: "heartIcon")
+        nextBtn.image = UIImage(named: "rightArrowIcon")
+        eyeBtn.addTarget(self, action: #selector(showBottomPainting), for: .touchUpInside)
+        heartBtn.addTarget(self, action: #selector(addToFavourites), for: .touchUpInside)
+        nextBtn.addTarget(self, action: #selector(showNextPicture), for: .touchUpInside)
+    }
+    
+    private func setBottomBtns() {
+        filterBtn.text = "FILTR"
+        detectionBtn.text = "DETEKCJA"
+        filterBtn.addTarget(self, action: #selector(showFilter), for: .touchUpInside)
+        detectionBtn.addTarget(self, action: #selector(showDetectionVC), for: .touchUpInside)
+    }
+    
     private func setPaintingView() {
         paintingView.layer.cornerRadius = CGFloat(10)
     }
     
     @objc func dupa() {
         print("dupa")
+    }
+    
+    @objc private func showFilter() {
+        print("FILTER")
+    }
+    
+    @objc private func showBottomPainting() {
+        print("showBottomPainting")
+    }
+    
+    @objc private func addToFavourites() {
+        print("addToFavourites")
+    }
+    
+    @objc private func showNextPicture() {
+        guard paintings.count > 1 else { return }
+        guard let index = paintings.index(where: { $0.identifier == currentPainting?.identifier }) else { return }
+        guard index < paintings.count - 1 else {
+            let painting  = paintings[0]
+            set(painting: painting)
+            return }
+        let paintig = paintings[index + 1]
+        set(painting: paintig)
+        print("showNextPicture")
     }
     
     @objc func showDetectionVC() {
@@ -114,11 +157,6 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         controller.sourceType = .camera
         controller.delegate = self
         present(controller, animated: true, completion: nil)
-    }
-    private func setIcons() {
-        eyeBtn.image = UIImage(named: "eyeIcon")
-        heartBtn.image = UIImage(named: "heartIcon")
-        nextBtn.image = UIImage(named: "rightArrowIcon")
     }
     
     private func detect(image: UIImage) throws {
@@ -218,26 +256,7 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         self.paintingView?.set(id: index, hidden: true)
       }
     }
-
     
-    @objc private func paintingFullScreen() {
-        UIView.animate(withDuration: 2, animations: {
-            self.paintStack.arrangedSubviews.last?.isHidden = true
-            self.fullScrnConstraints(view: self.paintStack)
-            })
-//        paintStack.arrangedSubviews.last?.isHidden = true
-//        paintStack.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-//        paintStack.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-//        paintStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        
-    }
-    
-    private func fullScrnConstraints(view: UIView) {
-        
-        view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-    }
 }
 
 extension HomeViewController: CameraViewControllerFlow {
@@ -245,7 +264,7 @@ extension HomeViewController: CameraViewControllerFlow {
     func didFound(tag: Tag) {
         self.navigationController?.popViewController(animated: true)
         guard let painting = paintings.first(where: { $0.tags.contains(tag) }) else { return }
-        paintingView.display(painting: painting.painting)
+        set(painting: painting)
     }
     
 }

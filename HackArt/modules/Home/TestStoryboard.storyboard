@@ -13,7 +13,7 @@
         <scene sceneID="S5t-8T-j1U">
             <objects>
                 <viewController id="FOV-ap-D8Z" customClass="HomeViewController" customModule="HackArt" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="B93-KB-76f">
+                    <view key="view" contentMode="scaleToFill" id="B93-KB-76f" customClass="BackgroundView" customModule="HackArt" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -123,7 +123,7 @@
         <scene sceneID="Wbw-7f-dEh">
             <objects>
                 <viewController id="0hv-Wa-z91" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="arb-rL-BAJ">
+                    <view key="view" contentMode="scaleToFill" id="arb-rL-BAJ" customClass="BackgroundView" customModule="HackArt" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

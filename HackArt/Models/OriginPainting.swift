@@ -29,54 +29,43 @@ struct OriginPainting {
     static func create() -> [OriginPainting] {
         return [
           OriginPainting(
-            painting: Painting(name: "przepiorki", image: #imageLiteral(resourceName: "przepiorki"), backgroundIamge: randBird()),
-            title: "Wit",
-            author: "Wit",
-            tags: [Tag.przepiorka],
-            identifier: "przepiorki"
-          ),
-          OriginPainting(
             painting: Painting(name: "Witkacy", image: #imageLiteral(resourceName: "Bitmap"), backgroundIamge: #imageLiteral(resourceName: "wit_bg")),
-            title: "Wit",
-            author: "Wit",
+            title: "Kompozycja fantastyczna",
+            author: "Witkiewicz, Stanisław Ignacy",
             tags: [Tag.slonko],
             identifier: "witkacy"
           ),
           OriginPainting(
-            painting: Painting(name: nil, image: #imageLiteral(resourceName: "sredniowiecze")),
-            title: "Wit",
-            author: "Wit",
-            tags: [Tag.smutek],
-            identifier: "sredniowiecze"
-          ),
-          
-          OriginPainting(
-            painting: Painting(name: nil, image: #imageLiteral(resourceName: "radosc")),
-            title: "Wit",
-            author: "Wit",
+            painting: Painting(name: "Swinka", image: #imageLiteral(resourceName: "radosc")),
+            title: "Zabawka na kiju \"Świnka\"",
+            author: "Kurzątkowski, Jan",
             tags: [Tag.radosc],
             identifier: "swiniak"
+            ),
+          OriginPainting(
+            painting: Painting(name: "przepiorki", image: #imageLiteral(resourceName: "przepiorki")),
+            title: "Kuropatwy na śniegu",
+            author: "Chełmoński, Józef",
+            tags: [Tag.przepiorka],
+            identifier: "przepiorki"
           ),
           OriginPainting(
-            painting: Painting(name: nil, image: #imageLiteral(resourceName: "smutek")),
-            title: "Wit",
-            author: "Wit",
+            painting: Painting(name: "Roztrzelanie", image: #imageLiteral(resourceName: "smutek")),
+            title: "Roztrzelanie",
+            author: "Wróblewski, Andrzej",
             tags: [Tag.smutek],
             identifier: "smutek"
           ),
           OriginPainting(
-            painting: Painting(name: nil, image: #imageLiteral(resourceName: "spokoj")),
-            title: "Wit",
-            author: "Wit",
-            tags: [Tag.spokoj],
-            identifier: "spokój"
-          ),
+            painting: Painting(name: "Sredniowiecze", image: #imageLiteral(resourceName: "sredniowiecze")),
+            title: "Duptyk rodzinny Winterfeldów",
+            author: "",
+            tags: [Tag.smutek],
+            identifier: "sredniowiecze"
+            )
         ]
-//        return [OriginPainting(image: UIImage(named: "0017.jpg")!, description: "Przepiórki tatatat", tags: [Tag.przepiorka, Tag.spokoj], identifier: "przepiorki")]
     }
-    
 }
-
 
 fileprivate let birdsBgs: [UIImage] = [#imageLiteral(resourceName: "przep_bg1"), #imageLiteral(resourceName: "przep_bg2")]
 
