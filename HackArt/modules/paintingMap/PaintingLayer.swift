@@ -192,6 +192,11 @@ class PaintingLayer: BasicLayer {
   }
   
   private func imageFrame() -> CGRect {
+    guard let bgSize: CGSize = painting.background?.size else {
+      return bounds
+    }
+    let imgSize: CGSize 
+    
     
     return bounds
   }

@@ -29,19 +29,20 @@ struct OriginPainting {
     static func create() -> [OriginPainting] {
         return [
           OriginPainting(
+            painting: Painting(name: "Witkacy", image: #imageLiteral(resourceName: "Bitmap"), backgroundIamge: #imageLiteral(resourceName: "wit_bg")),
+            title: "Wit",
+            author: "Wit",
+            tags: [Tag.slonko],
+            identifier: "witkacy"
+          ),
+          OriginPainting(
             painting: Painting(name: nil, image: #imageLiteral(resourceName: "sredniowiecze")),
             title: "Wit",
             author: "Wit",
             tags: [Tag.smutek],
             identifier: "sredniowiecze"
           ),
-          OriginPainting(
-            painting: Painting(name: "Witkacy", image: #imageLiteral(resourceName: "Bitmap")),
-            title: "Wit",
-            author: "Wit",
-            tags: [Tag.slonko],
-            identifier: "witkacy"
-          ),
+          
           OriginPainting(
             painting: Painting(name: nil, image: #imageLiteral(resourceName: "radość")),
             title: "Wit",
@@ -75,4 +76,7 @@ struct OriginPainting {
     }
     
 }
+
+
+fileprivate let witBackgrounds: [UIImage] = [#imageLiteral(resourceName: "wit_bg")]
 
