@@ -203,11 +203,6 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         cameraBarBtn.action = #selector(showPaintingFinder)
         cameraBarBtn.target = self
         cameraBarBtn.tintColor = .black
-//            .addTarget(self, action: #selector(showPaintingFinder), for: .touchUpInside)
-//        let rightbarButtonView = ProfileButtonView()
-//        rightbarButtonView.addTarget(self, action: #selector(showPaintingFinder), for: .touchUpInside)
-//        let rightbarButton: UIBarButtonItem = UIBarButtonItem(customView: rightbarButtonView)
-//        self.navigationItem.rightBarButtonItem = rightbarButton
     }
     
     @objc private func burgerMenu() {
@@ -227,7 +222,7 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     }
     
     
-    private func showInfo(text: String) {
+    private func showInfo(text: String, completion: () -> Void) {
         self.view.bringSubview(toFront: info)
         self.info.isHidden = false
         info.text = text
@@ -235,6 +230,7 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
                 self.info.alpha = 1.0
                 self.info.isUserInteractionEnabled = true
         })
+        completion()
     }
     
     
@@ -258,12 +254,12 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
       case 3: msg = "Zboczeniec!!!"
       default: break
       }
-<<<<<<< HEAD
-      showOkAlert(title: "elo", message: msg) {
-=======
-      
+        
+//        showInfo(text: msg, completion: {
+//            self.paintingView?.set(id: index, hidden: true)
+//        })
+        
       showOkAlert(message: msg) {
->>>>>>> 019f0cd92e767855c77a4ba6d86699998c856aaa
         (_: UIAlertAction) in
         self.paintingView?.set(id: index, hidden: true)
       }

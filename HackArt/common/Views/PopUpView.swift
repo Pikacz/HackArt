@@ -40,6 +40,7 @@ class PopUpView: BasicView {
     }
     
     @objc func dismissView() {
+        
         UIView.animate(withDuration: 0.3, delay: 0.1,
                        animations: {
                         self.alpha = 0.0
