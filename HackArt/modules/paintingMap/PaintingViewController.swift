@@ -1,12 +1,14 @@
 import UIKit
 
 
+
 class PaintingViewController: BasicViewController, PaintingViewDelegate {
   @IBOutlet private weak var paintingView: PaintingViewScroll! {
     didSet {
       paintingView?.paintingDelegate = self
     }
   }
+
   
   
   override func viewDidLoad() {

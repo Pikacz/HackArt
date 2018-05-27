@@ -23,6 +23,15 @@
 		34C39D0A20B9EF0E00A09B5A /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C39D0720B9EF0E00A09B5A /* Painting.swift */; };
 		34C39D0B20B9EF0E00A09B5A /* PaintingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C39D0820B9EF0E00A09B5A /* PaintingLayer.swift */; };
 		34C39D0D20BAAAE000A09B5A /* Witkacy.svg in Resources */ = {isa = PBXBuildFile; fileRef = 34C39D0C20BAAADF00A09B5A /* Witkacy.svg */; };
+		34C39D1320BAB2F700A09B5A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C39D0F20BAB2F700A09B5A /* CameraViewController.swift */; };
+		34C39D1420BAB2F700A09B5A /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C39D1020BAB2F700A09B5A /* CameraView.swift */; };
+		34C39D1520BAB2F700A09B5A /* CameraOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C39D1120BAB2F700A09B5A /* CameraOrientation.swift */; };
+		34C39D1620BAB2F700A09B5A /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C39D1220BAB2F700A09B5A /* Camera.swift */; };
+		34C39D1C20BAB30200A09B5A /* smutek.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34C39D1820BAB30200A09B5A /* smutek.jpg */; };
+		34C39D1D20BAB30200A09B5A /* spokój.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34C39D1920BAB30200A09B5A /* spokój.jpg */; };
+		34C39D1E20BAB30200A09B5A /* 0017.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34C39D1A20BAB30200A09B5A /* 0017.jpg */; };
+		34C39D1F20BAB30200A09B5A /* radość.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34C39D1B20BAB30200A09B5A /* radość.jpg */; };
+		34C39D2220BAB32000A09B5A /* OriginPainting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C39D2120BAB32000A09B5A /* OriginPainting.swift */; };
 		86EB118FB09CFD2BBFDC4EBE /* Pods_HackArt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7B366F9E2EA8DDCCDC8E83 /* Pods_HackArt.framework */; };
 		9E9A018920B99E9700475D5C /* TuriCreate.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A018820B99E9700475D5C /* TuriCreate.mlmodel */; };
 		9E9A018E20B99FDD00475D5C /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9A018D20B99FDD00475D5C /* Constraints.swift */; };
@@ -56,6 +65,15 @@
 		34C39D0720B9EF0E00A09B5A /* Painting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Painting.swift; sourceTree = "<group>"; };
 		34C39D0820B9EF0E00A09B5A /* PaintingLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintingLayer.swift; sourceTree = "<group>"; };
 		34C39D0C20BAAADF00A09B5A /* Witkacy.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Witkacy.svg; sourceTree = "<group>"; };
+		34C39D0F20BAB2F700A09B5A /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		34C39D1020BAB2F700A09B5A /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		34C39D1120BAB2F700A09B5A /* CameraOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraOrientation.swift; sourceTree = "<group>"; };
+		34C39D1220BAB2F700A09B5A /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		34C39D1820BAB30200A09B5A /* smutek.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smutek.jpg; sourceTree = "<group>"; };
+		34C39D1920BAB30200A09B5A /* spokój.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "spokój.jpg"; sourceTree = "<group>"; };
+		34C39D1A20BAB30200A09B5A /* 0017.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0017.jpg; sourceTree = "<group>"; };
+		34C39D1B20BAB30200A09B5A /* radość.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "radość.jpg"; sourceTree = "<group>"; };
+		34C39D2120BAB32000A09B5A /* OriginPainting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OriginPainting.swift; sourceTree = "<group>"; };
 		9085B6C34E7D0B44B7F81048 /* Pods-HackArt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackArt.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackArt/Pods-HackArt.release.xcconfig"; sourceTree = "<group>"; };
 		9E9A018820B99E9700475D5C /* TuriCreate.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TuriCreate.mlmodel; sourceTree = "<group>"; };
 		9E9A018D20B99FDD00475D5C /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
@@ -181,6 +199,9 @@
 		341702D920B95016000C246C /* HackArt */ = {
 			isa = PBXGroup;
 			children = (
+				34C39D2020BAB32000A09B5A /* Models */,
+				34C39D1720BAB30200A09B5A /* Images */,
+				34C39D0E20BAB2F700A09B5A /* CameraDetection */,
 				9E9A018F20B99FE000475D5C /* Extensions */,
 				9E9A018520B99E6F00475D5C /* MLModel */,
 				341702DA20B95016000C246C /* AppDelegate.swift */,
@@ -194,6 +215,36 @@
 				341702E620B95017000C246C /* Info.plist */,
 			);
 			path = HackArt;
+			sourceTree = "<group>";
+		};
+		34C39D0E20BAB2F700A09B5A /* CameraDetection */ = {
+			isa = PBXGroup;
+			children = (
+				34C39D0F20BAB2F700A09B5A /* CameraViewController.swift */,
+				34C39D1020BAB2F700A09B5A /* CameraView.swift */,
+				34C39D1120BAB2F700A09B5A /* CameraOrientation.swift */,
+				34C39D1220BAB2F700A09B5A /* Camera.swift */,
+			);
+			path = CameraDetection;
+			sourceTree = "<group>";
+		};
+		34C39D1720BAB30200A09B5A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				34C39D1820BAB30200A09B5A /* smutek.jpg */,
+				34C39D1920BAB30200A09B5A /* spokój.jpg */,
+				34C39D1A20BAB30200A09B5A /* 0017.jpg */,
+				34C39D1B20BAB30200A09B5A /* radość.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		34C39D2020BAB32000A09B5A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				34C39D2120BAB32000A09B5A /* OriginPainting.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		9E9A018520B99E6F00475D5C /* MLModel */ = {
@@ -310,13 +361,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34C39D1D20BAB30200A09B5A /* spokój.jpg in Resources */,
 				340CC67D20B9B582001FF0E0 /* asd.svg in Resources */,
 				34C39D0D20BAAAE000A09B5A /* Witkacy.svg in Resources */,
+				34C39D1C20BAB30200A09B5A /* smutek.jpg in Resources */,
 				340CC67C20B9B582001FF0E0 /* Untitled.sketch in Resources */,
 				341702E520B95017000C246C /* LaunchScreen.storyboard in Resources */,
 				F187974B20B9C4B000FAE7C1 /* TestStoryboard.storyboard in Resources */,
+				34C39D1E20BAB30200A09B5A /* 0017.jpg in Resources */,
 				341702E220B95017000C246C /* Assets.xcassets in Resources */,
 				341702E020B95016000C246C /* Main.storyboard in Resources */,
+				34C39D1F20BAB30200A09B5A /* radość.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,13 +425,18 @@
 				340CC67E20B9B582001FF0E0 /* PaintingViewController.swift in Sources */,
 				341702DD20B95016000C246C /* ViewController.swift in Sources */,
 				340CC67A20B9B582001FF0E0 /* BasicViews.swift in Sources */,
+				34C39D1520BAB2F700A09B5A /* CameraOrientation.swift in Sources */,
 				340CC67920B9B582001FF0E0 /* BasicLayers.swift in Sources */,
 				34C39D0B20B9EF0E00A09B5A /* PaintingLayer.swift in Sources */,
 				F187975720B9E71200FAE7C1 /* PaintingButtons.swift in Sources */,
+				34C39D1620BAB2F700A09B5A /* Camera.swift in Sources */,
+				34C39D1420BAB2F700A09B5A /* CameraView.swift in Sources */,
 				9E9A018E20B99FDD00475D5C /* Constraints.swift in Sources */,
+				34C39D2220BAB32000A09B5A /* OriginPainting.swift in Sources */,
 				F187974220B9B89B00FAE7C1 /* HomeViewController.swift in Sources */,
 				9E9A018920B99E9700475D5C /* TuriCreate.mlmodel in Sources */,
 				F187975520B9E2E600FAE7C1 /* UIColors.swift in Sources */,
+				34C39D1320BAB2F700A09B5A /* CameraViewController.swift in Sources */,
 				34C39D0A20B9EF0E00A09B5A /* Painting.swift in Sources */,
 				F187975920BAA01D00FAE7C1 /* BurgerMenuView.swift in Sources */,
 				34C39D0920B9EF0E00A09B5A /* PaintingViewScroll.swift in Sources */,
