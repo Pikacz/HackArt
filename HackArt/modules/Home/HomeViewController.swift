@@ -14,14 +14,20 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
 
     private weak var tagFinder: UIViewController?
     
-    let info: PopUpView = PopUpView()
+    let info: PopUpView = {
+        let pop = PopUpView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+        pop.isHidden = true
+        return pop
+    }()
 
     @IBOutlet weak var filterBtn: BottomButton!
     @IBOutlet weak var detectionBtn: BottomButton!
     @IBOutlet weak var eyeBtn: PaintingButtons!
     @IBOutlet weak var heartBtn: PaintingButtons!
     @IBOutlet weak var nextBtn: PaintingButtons!
-  
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var authorLbl: UILabel!
+    
     @IBOutlet weak var paintingView: PaintingViewScroll! {
         didSet {
           paintingView?.paintingDelegate = self
@@ -52,6 +58,8 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         heartBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
         nextBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
         addBurgerButton()
+        setLbls()
+        setIcons()
 
 
       
@@ -69,6 +77,13 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     
     private func set(painting: OriginPainting) {
         paintingView.display(painting: painting.painting)
+        authorLbl.text = painting.author
+        titleLbl.text = painting.title
+    }
+    private func setLbls() {
+        authorLbl.adjustsFontSizeToFitWidth = true
+        authorLbl.font = authorLbl.font.withSize(14)
+        titleLbl.adjustsFontSizeToFitWidth = true
     }
     
     @objc func dupa() {
@@ -95,6 +110,11 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         controller.sourceType = .camera
         controller.delegate = self
         present(controller, animated: true, completion: nil)
+    }
+    private func setIcons() {
+        eyeBtn.image = UIImage(named: "eyeIcon")
+        heartBtn.image = UIImage(named: "heartIcon")
+        nextBtn.image = UIImage(named: "rightArrowIcon")
     }
     
     private func detect(image: UIImage) throws {
