@@ -40,6 +40,7 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     // MARK: - Paintings
     
     private let paintings: [OriginPainting] = OriginPainting.create()
+    private var currentPainting: OriginPainting? = nil
     
     
     override func viewDidLoad() {
@@ -67,6 +68,7 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     }
     
     private func set(painting: OriginPainting) {
+        currentPainting = painting
         paintingView.display(painting: painting.painting)
         authorLbl.text = painting.author
         titleLbl.text = painting.title
@@ -116,6 +118,14 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     }
     
     @objc private func showNextPicture() {
+        guard paintings.count > 1 else { return }
+        guard let index = paintings.index(where: { $0.identifier == currentPainting?.identifier }) else { return }
+        guard index < paintings.count - 1 else {
+            let painting  = paintings[0]
+            set(painting: painting)
+            return }
+        let paintig = paintings[index + 1]
+        set(painting: paintig)
         print("showNextPicture")
     }
     

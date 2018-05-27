@@ -58,8 +58,8 @@ struct OriginPainting {
           ),
           OriginPainting(
             painting: Painting(name: "Sredniowiecze", image: #imageLiteral(resourceName: "sredniowiecze")),
-            title: "Roztrzelanie",
-            author: "Wróblewski, Andrzej",
+            title: "Duptyk rodzinny Winterfeldów",
+            author: "",
             tags: [Tag.smutek],
             identifier: "sredniowiecze"
             )
