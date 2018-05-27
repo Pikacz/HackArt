@@ -16,10 +16,9 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     
     let info: PopUpView = {
         let pop = PopUpView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
-        pop.isHidden = true
+        pop.alpha = 0.0
         return pop
     }()
-
     @IBOutlet weak var filterBtn: BottomButton!
     @IBOutlet weak var detectionBtn: BottomButton!
     @IBOutlet weak var eyeBtn: PaintingButtons!
@@ -39,7 +38,6 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     @IBOutlet weak var paintTopCnstr: NSLayoutConstraint!
     
     @IBOutlet weak var paintStack: UIStackView!
-    @IBOutlet weak var paintView: UIView!
     
     // MARK: - Paintings
     
@@ -50,7 +48,9 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         super.viewDidLoad()
 
         self.view.addSubview(info)
-        filterBtn.text = "dupsra"
+        filterBtn.text = "FILTR"
+        detectionBtn.text = "DETEKCJA"
+        
         filterBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
         detectionBtn.addTarget(self, action: #selector(showDetectionVC), for: .touchUpInside)
         eyeBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
@@ -60,19 +60,19 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         addBurgerButton()
         setLbls()
         setIcons()
+        setPaintingView()
 
 
       
-        
+        addInfoConstraints()
 
-        
-//        paintStack.translatesAutoresizingMaskIntoConstraints = false
+        self.view.bringSubview(toFront: paintStack)
+        showInfo()
 
         if let painting = paintings.first {
             set(painting: painting)
         }
 
-        self.view.bringSubview(toFront: paintStack)
     }
     
     private func set(painting: OriginPainting) {
@@ -84,6 +84,10 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         authorLbl.adjustsFontSizeToFitWidth = true
         authorLbl.font = authorLbl.font.withSize(14)
         titleLbl.adjustsFontSizeToFitWidth = true
+        titleLbl.numberOfLines = 2
+    }
+    private func setPaintingView() {
+        paintingView.layer.cornerRadius = CGFloat(10)
     }
     
     @objc func dupa() {
@@ -176,6 +180,17 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         info.heightAnchor.constraint(equalToConstant: self.view.bounds.height * 0.5).isActive = true
         info.widthAnchor.constraint(equalToConstant: self.view.bounds.width * 0.8).isActive = true
     }
+    private func showInfo() {
+        print("showinfo")
+        self.view.bringSubview(toFront: info)
+        self.info.isHidden = false
+        UIView.animate(withDuration: 0.5, animations: {
+                self.info.alpha = 1.0
+                self.info.isUserInteractionEnabled = true
+        })
+        
+    }
+    
 
   
     // MARK: PaintingViewDelegate
