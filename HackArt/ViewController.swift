@@ -113,8 +113,8 @@ final class ViewController: UIViewController {
     }
     
     private func set(image: OriginPainting?) {
-        resultLabel.text = (image?.identifier ?? "") + "\n" + (image?.description ?? "")
-        imageView.image = image?.image
+//        resultLabel.text = (image?.identifier ?? "") + "\n" + (image?.description ?? "")
+//        imageView.image = image?.image
     }
     
     private func detect(image: UIImage) throws {

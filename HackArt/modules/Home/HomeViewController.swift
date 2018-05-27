@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import CoreML
+import Vision
 
 class HomeViewController: BasicViewController, PaintingViewDelegate {
 
-    let info: PopUpView = PopUpView()
+    private weak var tagFinder: UIViewController?
     
+    let info: PopUpView = PopUpView()
+
     @IBOutlet weak var filterBtn: BottomButton!
     @IBOutlet weak var detectionBtn: BottomButton!
     @IBOutlet weak var eyeBtn: PaintingButtons!
@@ -31,6 +35,10 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     @IBOutlet weak var paintStack: UIStackView!
     @IBOutlet weak var paintView: UIView!
     
+    // MARK: - Paintings
+    
+    private let paintings: [OriginPainting] = OriginPainting.create()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,33 +46,79 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         self.view.addSubview(info)
         filterBtn.text = "dupsra"
         filterBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
-        detectionBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
+        detectionBtn.addTarget(self, action: #selector(showDetectionVC), for: .touchUpInside)
         eyeBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
         eyeBtn.image = UIImage(named: "eyeIcon")
         heartBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
         nextBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
         addBurgerButton()
-
-      
-        let painting: Painting = Painting(name: "Witkacy", image: #imageLiteral(resourceName: "Bitmap"))!
-        paintingView?.display(painting: painting)
-
-        
-//        paintStack.translatesAutoresizingMaskIntoConstraints = false
+        if let painting = paintings.first {
+            set(painting: painting)
+        }
         self.view.bringSubview(toFront: paintStack)
-        
-        
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(paintingFullScreen))
-//        paintStack.addGestureRecognizer(tap)
-        
-
+    }
+    
+    private func set(painting: OriginPainting) {
+        paintingView.display(painting: painting.painting)
     }
     
     @objc func dupa() {
         print("dupa")
     }
+    
+    @objc func showDetectionVC() {
+        guard let vc = tagFinder else {
+            let vc = CameraViewController(nibName: nil, bundle: nil)
+            self.tagFinder = vc
+            vc.flow = self
+            self.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
   
+    @objc private func showPaintingFinder() {
+        showPicker()
+    }
   
+    private func showPicker() {
+        let controller = UIImagePickerController()
+        controller.sourceType = .camera
+        controller.delegate = self
+        present(controller, animated: true, completion: nil)
+    }
+    
+    private func detect(image: UIImage) throws {
+      //  loadingIndicator.startAnimating()
+        
+        let model = try VNCoreMLModel(for: TuriCreate().model)
+        
+        let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
+            guard let results = request.results as? [VNClassificationObservation],
+                let topResult = results.first else {
+                    print(error as Any)
+                    return
+            }
+            
+            DispatchQueue.main.async {
+                if let painting = self?.paintings.first(where: { $0.identifier == topResult.identifier }) {
+                    self?.set(painting: painting)
+                }
+                //self?.resultLabel.text = topResult.identifier + " (confidence \(topResult.confidence * 100)%)"
+        //        self?.loadingIndicator.stopAnimating()
+            }
+        })
+        
+        let handler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
+        DispatchQueue.global(qos: .userInteractive).async {
+            do {
+                try handler.perform([request])
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.portrait
     }
@@ -76,6 +130,10 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         let barButton: UIBarButtonItem = UIBarButtonItem(customView: barButtonView)
         self.navigationItem.leftBarButtonItem = barButton
         
+        let rightbarButtonView = ProfileButtonView()
+        rightbarButtonView.addTarget(self, action: #selector(showPaintingFinder), for: .touchUpInside)
+        let rightbarButton: UIBarButtonItem = UIBarButtonItem(customView: rightbarButtonView)
+        self.navigationItem.rightBarButtonItem = rightbarButton
     }
     
     @objc private func burgerMenu() {
@@ -126,6 +184,25 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
     }
-    
+}
 
+extension HomeViewController: CameraViewControllerFlow {
+    
+    func didFound(tag: Tag) {
+        self.navigationController?.popViewController(animated: true)
+        guard let painting = paintings.first(where: { $0.tags.contains(tag) }) else { return }
+        paintingView.display(painting: painting.painting)
+    }
+    
+}
+
+extension HomeViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            return
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+        try? detect(image: image)
+    }
 }
