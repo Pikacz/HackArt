@@ -4,9 +4,15 @@ import PocketSVG
 
 class PaintingLayer: BasicLayer {
   private var imageLayer: CALayer = CALayer()
+  private var backgroundLayer: CALayer = CALayer()
   
+  var isBackgroundHidden: Bool = false {
+    didSet {
+      set(backgroundHidden: isBackgroundHidden)
+    }
+  }
   
-  private var toMask: [CALayer] = [] {
+  private var toMask: [SpecyficLayer] = [] {
     willSet {
       for tm in toMask {
         tm.removeFromSuperlayer()
@@ -26,7 +32,7 @@ class PaintingLayer: BasicLayer {
     }
     didSet {
       toMask = (0..<highlightAreas.count).map {
-        (_: Int) -> CALayer in return self.createImage()
+        (_: Int) -> SpecyficLayer in return self.createImage()
       }
       var i = 0
       for (_, layer) in highlightAreas {
@@ -75,6 +81,8 @@ class PaintingLayer: BasicLayer {
       self.hitAreas = hit
       
       imageLayer.contents = painting.image.cgImage
+      backgroundLayer.contents = painting.background?.cgImage
+      backgroundLayer.opacity = 1.0
     }
   }
   
@@ -87,15 +95,16 @@ class PaintingLayer: BasicLayer {
     imageLayer.masksToBounds = true
     imageLayer.contentsScale = UIScreen.main.scale
     
+    addSublayer(backgroundLayer)
+    backgroundLayer.isHidden = true
+    imageLayer.masksToBounds = true
+    imageLayer.contentsScale = UIScreen.main.scale
   }
   
   override func layoutSublayers() {
     super.layoutSublayers()
     guard painting != nil else { return }
-    let imgFrame: CGRect = imageFrame()
-    for tm in toMask {
-      tm.frame = imgFrame
-    }
+    
     
     let scaleTransform: CATransform3D = getScaleTransform(frame: painting.framePath)
     for (id, path) in painting.highlightPaths {
@@ -121,11 +130,20 @@ class PaintingLayer: BasicLayer {
     }
     imageLayer.bounds.size = CGSize(width: imgW, height: imgH)
     imageLayer.position = CGPoint(x: bounds.midX, y: bounds.midY)
+    
+    let imgFrame: CGRect = imageFrame()
+    for tm in toMask {
+      tm.frame = bounds
+      tm.myFrame = imgFrame
+    }
+    
+    backgroundLayer.frame = imgFrame
   }
   
   
   func display(painting: Painting) {
     self.painting = painting
+    set(backgroundHidden: true)
   }
   
   
@@ -136,6 +154,14 @@ class PaintingLayer: BasicLayer {
   
   func set(id: Int, hidden: Bool) {
     highlightAreas[id]?.opacity = hidden ? 0.0 : 1.0
+  }
+  
+  func set(backgroundHidden hidden: Bool) {
+    backgroundLayer.isHidden = hidden
+    imageLayer.isHidden = !hidden
+    for tm in toMask {
+      tm.isHidden = !hidden
+    }
   }
   
   
@@ -184,10 +210,9 @@ class PaintingLayer: BasicLayer {
     return CATransform3DScale(translate, scale, scale, CGFloat(0.0))
   }
   
-  private func createImage() -> CALayer {
-    let result: CALayer = CALayer()
-    result.contentsScale = UIScreen.main.scale
-    result.contents = painting.background?.cgImage ?? #imageLiteral(resourceName: "god").cgImage
+  private func createImage() -> SpecyficLayer {
+    let result: SpecyficLayer = SpecyficLayer()
+    result.myContents = painting.background?.cgImage ?? #imageLiteral(resourceName: "god").cgImage
     return result
   }
   
@@ -195,11 +220,56 @@ class PaintingLayer: BasicLayer {
     guard let bgSize: CGSize = painting.background?.size else {
       return bounds
     }
-    let imgSize: CGSize
+    let imgSize: CGSize = imageLayer.frame.size
+//    let imgOrigin: CGPoint = imageLayer.frame.origin
+    
+    let scaleX: CGFloat = imgSize.width / bgSize.width
+    let scaleY: CGFloat = imgSize.height / bgSize.width
+    
+    var size: CGSize
+    if scaleX < scaleY {
+      size = CGSize(
+        width: imgSize.height * bgSize.width / bgSize.height,
+        height: imgSize.height
+      )
+    } else {
+      size = CGSize(
+        width: imgSize.width,
+        height: imgSize.width * bgSize.height / bgSize.width
+      )
+    }
+    let origin: CGPoint = CGPoint(
+      x: ((bounds.width - size.width) / CGFloat(2.0)),
+      y: ((bounds.height - size.height) / CGFloat(2.0))
+    )
     
     
-    return bounds
+    
+    return CGRect(origin: origin, size: size)
   }
 }
 
 
+
+
+fileprivate class SpecyficLayer: BasicLayer {
+  let bg: CALayer = CALayer()
+  
+  override func initialize() {
+    super.initialize()
+    
+    addSublayer(bg)
+    bg.masksToBounds = true
+    bg.contentsScale = UIScreen.main.scale
+  }
+  
+  var myContents: Any? {
+    get { return bg.contents }
+    set { bg.contents = newValue }
+  }
+  
+  var myFrame: CGRect {
+    get { return bg.frame }
+    set { bg.frame = newValue }
+  }
+}

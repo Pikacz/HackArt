@@ -53,7 +53,7 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         
         filterBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
         detectionBtn.addTarget(self, action: #selector(showDetectionVC), for: .touchUpInside)
-        eyeBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
+        eyeBtn.addTarget(self, action: #selector(updateBackgroundvisibility), for: .touchUpInside)
         eyeBtn.image = UIImage(named: "eyeIcon")
         heartBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
         nextBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
@@ -191,19 +191,29 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         
     }
     
-
-  
+    
+    @objc func updateBackgroundvisibility() {
+        paintingView.isBackgroundHidden = !paintingView.isBackgroundHidden
+    }
     // MARK: PaintingViewDelegate
     func paintingView(_ view: PaintingView, didSelect index: Int) {
       var msg: String = ""
       switch index {
-      case 1: msg = "Ciekawostka 1"
+      case 1: msg = """
+        Kuropatwę myjemy, osuszamy, całą dokładnie nacieramy solą, pieprzem, jałowcem i czosnkiem,
+        tak natartą wkładamy do lodówki na 12 godzin. Następnie cienkimi plasterkami słoniny i boczku
+        obkładamy całego ptaka, zapewni to jędrność mięsa. Przygotowaną kuropatwę wkładamy do naczynia
+        żaroodpornego i wkładamy do piekarnika na 280 stopni na 30-40 minut, podczas pieczenia polewać
+        czerwonym wytrawnym winem. Gotową odstawić w ciepłe miejsce na około 15 minut, w tym czasie na
+        płynie z pieczenia przygotowujemy sos, dodajemy grzyby, śliwki wędzone, przyprawy i gotujemy aż
+        płyn się zredukuje, gotowym polewamy ptaki, układamy na talerzu z buraczkami i zieleniną.
+        """
       case 2: msg = "Pedofil!!!"
       case 3: msg = "Zboczeniec!!!"
       default: break
       }
       
-      showOkAlert(title: "elo", message: msg) {
+      showOkAlert(message: msg) {
         (_: UIAlertAction) in
         self.paintingView?.set(id: index, hidden: true)
       }

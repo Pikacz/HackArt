@@ -82,7 +82,6 @@ fileprivate let birdsBgs: [UIImage] = [#imageLiteral(resourceName: "przep_bg1"),
 
 fileprivate func randBird() -> UIImage {
   let r = arc4random()
-  print(r)
   let idx = r % 2
   return birdsBgs[Int(idx)]
 }

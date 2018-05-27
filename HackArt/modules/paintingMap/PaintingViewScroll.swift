@@ -9,6 +9,11 @@ class PaintingViewScroll: BasicScrollView, UIScrollViewDelegate {
     set { paintingView.delegate = newValue }
   }
   
+  var isBackgroundHidden: Bool {
+    get { return paintingView.isBackgroundHidden }
+    set { paintingView.isBackgroundHidden = newValue }
+  }
+  
   override func initialize() {
     super.initialize()
     
@@ -39,6 +44,7 @@ class PaintingViewScroll: BasicScrollView, UIScrollViewDelegate {
   func set(id: Int, hidden: Bool) {
     paintingView.set(id: id, hidden: hidden)
   }
+  
   
   // MARK: UIScrollView
   func viewForZooming(in scrollView: UIScrollView) -> UIView? {
