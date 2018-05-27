@@ -18,21 +18,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UyS-UT-eVr" userLabel="PaintingStackView">
-                                <rect key="frame" x="24" y="88" width="327" height="443"/>
+                                <rect key="frame" x="24" y="99" width="327" height="414"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAJ-Az-eIf" userLabel="PaintingView" customClass="PaintingViewScroll" customModule="HackArt" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="327" height="393"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="327" height="364"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="327" placeholderIntrinsicHeight="20" text="Autor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kST-nq-LFg">
-                                        <rect key="frame" x="0.0" y="393" width="327" height="20"/>
+                                        <rect key="frame" x="0.0" y="364" width="327" height="20"/>
                                         <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="327" placeholderIntrinsicHeight="30" text="Tytuł: Pozdero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0t-mF-xlJ">
-                                        <rect key="frame" x="0.0" y="413" width="327" height="30"/>
+                                        <rect key="frame" x="0.0" y="384" width="327" height="30"/>
                                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -70,11 +70,11 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="5VR-IL-5dT" userLabel="BottomButtons">
                                 <rect key="frame" x="24" y="605" width="327" height="50"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qte-lH-T4C" customClass="BottomButton" customModule="HackArt" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qte-lH-T4C" customClass="UIButton">
                                         <rect key="frame" x="0.0" y="0.0" width="156.5" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="32v-UT-f2J" customClass="BottomButton" customModule="HackArt" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="32v-UT-f2J" customClass="UIButton">
                                         <rect key="frame" x="170.5" y="0.0" width="156.5" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
@@ -87,13 +87,13 @@
                         <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="UyS-UT-eVr" firstAttribute="leading" secondItem="SjG-d6-yWs" secondAttribute="leading" constant="24" id="2pC-q1-OKI"/>
-                            <constraint firstItem="UyS-UT-eVr" firstAttribute="top" secondItem="SjG-d6-yWs" secondAttribute="top" constant="24" id="JVs-x7-RhO"/>
+                            <constraint firstItem="UyS-UT-eVr" firstAttribute="top" secondItem="SjG-d6-yWs" secondAttribute="top" constant="35" id="JVs-x7-RhO"/>
                             <constraint firstItem="5VR-IL-5dT" firstAttribute="centerX" secondItem="B93-KB-76f" secondAttribute="centerX" id="Jcn-9d-tbR"/>
                             <constraint firstItem="vtm-GC-DqH" firstAttribute="centerX" secondItem="B93-KB-76f" secondAttribute="centerX" id="KNr-yv-tnM"/>
                             <constraint firstItem="5VR-IL-5dT" firstAttribute="top" secondItem="vtm-GC-DqH" secondAttribute="bottom" constant="12" id="NEk-4s-jFw"/>
                             <constraint firstItem="UyS-UT-eVr" firstAttribute="centerX" secondItem="B93-KB-76f" secondAttribute="centerX" id="RbB-DD-Kt8"/>
                             <constraint firstItem="5VR-IL-5dT" firstAttribute="leading" secondItem="B93-KB-76f" secondAttribute="leading" constant="24" id="Tst-gG-aaz"/>
-                            <constraint firstItem="vtm-GC-DqH" firstAttribute="top" secondItem="UyS-UT-eVr" secondAttribute="bottom" constant="12" id="XAM-W1-izR"/>
+                            <constraint firstItem="vtm-GC-DqH" firstAttribute="top" secondItem="UyS-UT-eVr" secondAttribute="bottom" constant="30" id="XAM-W1-izR"/>
                             <constraint firstItem="vtm-GC-DqH" firstAttribute="leading" secondItem="SjG-d6-yWs" secondAttribute="leading" constant="50" id="aTS-Qv-ceP"/>
                             <constraint firstItem="SjG-d6-yWs" firstAttribute="bottom" secondItem="5VR-IL-5dT" secondAttribute="bottom" constant="12" id="yg4-c6-CE5"/>
                         </constraints>

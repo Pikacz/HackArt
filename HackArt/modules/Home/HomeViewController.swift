@@ -18,16 +18,72 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         pop.alpha = 0.0
         return pop
     }()
-    @IBOutlet weak var filterBtn: BottomButton!
-    @IBOutlet weak var detectionBtn: BottomButton!
-    @IBOutlet weak var eyeBtn: PaintingButtons!
-    @IBOutlet weak var heartBtn: PaintingButtons!
-    @IBOutlet weak var nextBtn: PaintingButtons!
-    @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var authorLbl: UILabel!
+    
+    @IBOutlet weak var filterBtn: UIButton! {
+        didSet {
+            filterBtn.backgroundColor = UIColor.white
+            filterBtn.layer.cornerRadius = 5
+            filterBtn.layer.borderColor = #colorLiteral(red: 0.09411764706, green: 0.5019607843, blue: 0.4196078431, alpha: 1)
+            filterBtn.layer.borderWidth = 2
+            filterBtn.tintColor = #colorLiteral(red: 0.3137254902, green: 0.3725490196, blue: 0.6588235294, alpha: 1)
+            filterBtn.imageView?.contentMode = .scaleAspectFit
+            filterBtn.setTitle("TAGI", for: .normal)
+            filterBtn.setTitleColor(#colorLiteral(red: 0.3137254902, green: 0.3725490196, blue: 0.6588235294, alpha: 1), for: .normal)
+            filterBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+           //
+        }
+    }
+    @IBOutlet weak var detectionBtn: UIButton! {
+        didSet {
+            detectionBtn.backgroundColor = UIColor.white
+            detectionBtn.layer.cornerRadius = 5
+            detectionBtn.layer.borderColor = #colorLiteral(red: 0.09411764706, green: 0.5019607843, blue: 0.4196078431, alpha: 1)
+            detectionBtn.layer.borderWidth = 2
+            detectionBtn.tintColor = #colorLiteral(red: 0.3137254902, green: 0.3725490196, blue: 0.6588235294, alpha: 1)
+            detectionBtn.imageView?.contentMode = .scaleAspectFit
+            detectionBtn.setTitle("DETEKCJA", for: .normal)
+            detectionBtn.setTitleColor(#colorLiteral(red: 0.3137254902, green: 0.3725490196, blue: 0.6588235294, alpha: 1), for: .normal)
+            detectionBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+           //
+        }
+    }
+    
+    @IBOutlet weak var eyeBtn: PaintingButtons! {
+        didSet {
+            eyeBtn.tintColor = #colorLiteral(red: 0.3137254902, green: 0.3725490196, blue: 0.6588235294, alpha: 1)
+        }
+    }
+    @IBOutlet weak var heartBtn: PaintingButtons! {
+        didSet {
+            heartBtn.tintColor = #colorLiteral(red: 0.3137254902, green: 0.3725490196, blue: 0.6588235294, alpha: 1)
+        }
+    }
+    @IBOutlet weak var nextBtn: PaintingButtons! {
+        didSet {
+            nextBtn.tintColor = #colorLiteral(red: 0.3137254902, green: 0.3725490196, blue: 0.6588235294, alpha: 1)
+        }
+    }
+    @IBOutlet weak var titleLbl: UILabel! {
+        didSet {
+            titleLbl.backgroundColor = UIColor.clear
+            titleLbl.textColor = UIColor.black
+            titleLbl.textAlignment = .left
+            titleLbl.font = UIFont.italicSystemFont(ofSize: 12)
+            titleLbl.text = nil
+        }
+    }
+    @IBOutlet weak var authorLbl: UILabel!  {
+        didSet {
+            authorLbl.backgroundColor = UIColor.clear
+            authorLbl.textColor = UIColor.black
+            authorLbl.textAlignment = .left
+            authorLbl.font = UIFont.italicSystemFont(ofSize: 12)
+        }
+    }
     @IBOutlet weak var paintingView: PaintingViewScroll! {
         didSet {
-          paintingView?.paintingDelegate = self
+            paintingView.layer.cornerRadius = 10
+            paintingView?.paintingDelegate = self
         }
     }
     
@@ -45,8 +101,13 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.view.addSubview(info)
+        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.7529411765, green: 0.862745098, blue: 0.8392156863, alpha: 1)
+        self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.09411764706, green: 0.5019607843, blue: 0.4196078431, alpha: 1)
+        let logo = #imageLiteral(resourceName: "title")
+        let imageView = UIImageView(image:logo)
+        imageView.contentMode = .scaleAspectFit
+        self.navigationItem.titleView = imageView
         
 
         filterBtn.addTarget(self, action: #selector(dupa), for: .touchUpInside)
@@ -67,6 +128,7 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
         addInfoConstraints()
 
         self.view.bringSubview(toFront: paintStack)
+        self.view.backgroundColor = UIColor.white
         showInfo()
 
         if let painting = paintings.first {
@@ -78,15 +140,16 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     private func set(painting: OriginPainting) {
         currentPainting = painting
         paintingView.display(painting: painting.painting)
-        authorLbl.text = painting.author
-        titleLbl.text = painting.title
+        authorLbl.text = painting.author + ", " + painting.title
+//        authorLbl.text = painting.author
+//        titleLbl.text = painting.title
     }
     
     private func setLbls() {
         authorLbl.adjustsFontSizeToFitWidth = true
-        authorLbl.font = authorLbl.font.withSize(14)
+//        authorLbl.font = authorLbl.font.withSize(14)
         titleLbl.adjustsFontSizeToFitWidth = true
-        titleLbl.numberOfLines = 2
+//        titleLbl.numberOfLines = 2
     }
     
     private func setPaintingBtns() {
@@ -99,8 +162,8 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     }
     
     private func setBottomBtns() {
-        filterBtn.text = "FILTR"
-        detectionBtn.text = "DETEKCJA"
+//        filterBtn.text = "FILTR"
+//        detectionBtn.text = "DETEKCJA"
         filterBtn.addTarget(self, action: #selector(showFilter), for: .touchUpInside)
         detectionBtn.addTarget(self, action: #selector(showDetectionVC), for: .touchUpInside)
     }
@@ -197,13 +260,17 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
     
     private func addBurgerButton() {
         let barButtonView = ProfileButtonView()
+        barButtonView.set(image: #imageLiteral(resourceName: "BurgerMenu"))
         barButtonView.addTarget(self, action: #selector(burgerMenu), for: .touchUpInside)
         let barButton: UIBarButtonItem = UIBarButtonItem(customView: barButtonView)
+        barButton.tintColor = #colorLiteral(red: 0.09411764706, green: 0.5019607843, blue: 0.4196078431, alpha: 1)
         self.navigationItem.leftBarButtonItem = barButton
         
         let rightbarButtonView = ProfileButtonView()
+        rightbarButtonView.set(image: #imageLiteral(resourceName: "camera"))
         rightbarButtonView.addTarget(self, action: #selector(showPaintingFinder), for: .touchUpInside)
         let rightbarButton: UIBarButtonItem = UIBarButtonItem(customView: rightbarButtonView)
+        rightbarButton.tintColor = #colorLiteral(red: 0.09411764706, green: 0.5019607843, blue: 0.4196078431, alpha: 1)
         self.navigationItem.rightBarButtonItem = rightbarButton
     }
     
