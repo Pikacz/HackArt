@@ -14,6 +14,7 @@ import Vision
 
 final class ViewController: UIViewController {
     
+    private weak var tagFinder: UIViewController?
     let images: [OriginPainting] = OriginPainting.create()
     
     private lazy var selectButton: UIButton = {
@@ -94,8 +95,13 @@ final class ViewController: UIViewController {
     }
     
     @objc private func openTagFinder() {
-        let vc = CameraViewController(nibName: nil, bundle: nil)
-        vc.flow = self
+        guard let vc = tagFinder else {
+            let vc = CameraViewController(nibName: nil, bundle: nil)
+            self.tagFinder = vc 
+            vc.flow = self
+            self.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -157,6 +163,7 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
 extension ViewController: CameraViewControllerFlow {
     
     func didFound(tag: Tag) {
+        self.navigationController?.popViewController(animated: true)
         let image = images.first(where: { $0.tags.contains(tag) })
         set(image: image)
     }

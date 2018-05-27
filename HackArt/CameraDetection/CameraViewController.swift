@@ -49,16 +49,24 @@ class CameraViewController: UIViewController {
     // MARK: - Helpers
     
     private func found(tag: Tag?) {
+        print(tag)
+        print(self.tag)
         guard let tag = tag else {
             self.timer?.invalidate()
             timer = nil
             return }
         if let currentTag = self.tag {
-            return
+            if currentTag == tag {
+                return
+            } else {
+                self.tag = tag
+                timer?.invalidate()
+                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerFinished), userInfo: nil, repeats: false)
+            }
         } else {
             self.tag = tag
             timer?.invalidate()
-            self.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(timerFinished), userInfo: nil, repeats: false)
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerFinished), userInfo: nil, repeats: false)
         }
     }
     
@@ -83,12 +91,14 @@ extension CameraViewController: CameraDelegate {
             //            }
             tag = nil
             print("nie ma japy");
+            found(tag: tag)
             return }
         print("\(faceFeature.bounds)")
         print("\(faceFeature.hasSmile)")
         
         if faceFeature.leftEyeClosed && faceFeature.rightEyeClosed {
-            tag = Tag.spokoj
+            tag = Tag.radosc
+            found(tag: tag)
             print("lew i prawe zakmniete")
             return
         }
@@ -110,11 +120,13 @@ extension CameraViewController: CameraDelegate {
         //            }
         if faceFeature.hasSmile {
             print("usmiech")
-            tag = Tag.radosc
+            tag = Tag.spokoj
+            found(tag: tag)
             return
         } else {
             print("smutek")
             tag = Tag.smutek
+            found(tag: tag)
             return
         }
     }

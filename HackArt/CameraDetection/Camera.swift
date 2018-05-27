@@ -29,7 +29,7 @@ public class Camera: NSObject {
     fileprivate var faceDetector: CIDetector?
     private lazy var captureSession = AVCaptureSession()
     private lazy var videoDataOutput = AVCaptureVideoDataOutput()
-    private var stillImageOutput: AVCaptureStillImageOutput?
+    private var stillImageOutput: AVCapturePhotoOutput?
     fileprivate var currentDevicePosition: AVCaptureDevice.Position = .front
     private var currentDevice: AVCaptureDevice?
     private var lastZoom: CGFloat = 1.0
@@ -101,60 +101,61 @@ public class Camera: NSObject {
         }
     }
     
-    func savePhoto(representation: PhotoRepresentation, completion: @escaping (_ image: UIImage?, _ success: Bool) -> ()) {
-        
-        guard let videoConnection = self.stillImageOutput?.connection(with: AVMediaType.video)
-            else {
-                completion(nil, false)
-                return
-        }
-        
-        var capturedImage: UIImage?
-        
-        self.stillImageOutput?.captureStillImageAsynchronously(from: videoConnection) { sampleBuffer, error in
-            
-            guard let sampleBuffer = sampleBuffer
-                else {
-                    completion(capturedImage, capturedImage != nil)
-                    return
-            }
-            
-            switch representation {
-            case .jpeg: // Not working
-                
-                if let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer) {
-                    let image = UIImage(data: imageData)
-                    capturedImage = image
-                }
-                
-            case .png:
-                
-                guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
-                    else {
-                        completion(capturedImage, capturedImage != nil)
-                        return
-                }
-                
-                let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
-                let context = CIContext(options: nil)
-                let rect = CGRect(x: 0,
-                                  y: 0,
-                                  width: CVPixelBufferGetWidth(pixelBuffer),
-                                  height: CVPixelBufferGetHeight(pixelBuffer))
-                if let imageRef = context.createCGImage(ciImage, from: rect) {
-                    let image = UIImage(cgImage: imageRef,
-                                        scale: 1.0,
-                                        orientation: .right)
-                    capturedImage = image
-                }
-                
-            }
-            
-            completion(capturedImage, capturedImage != nil)
-            
-        }
-        
-    }
+//    func savePhoto(representation: PhotoRepresentation, completion: @escaping (_ image: UIImage?, _ success: Bool) -> ()) {
+//
+//        guard let videoConnection = self.stillImageOutput?.connection(with: AVMediaType.video)
+//            else {
+//                completion(nil, false)
+//                return
+//        }
+//
+//        var capturedImage: UIImage?
+//
+//        self.stillImageOutput?.
+//        self.stillImageOutput?.captureStillImageAsynchronously(from: videoConnection) { sampleBuffer, error in
+//
+//            guard let sampleBuffer = sampleBuffer
+//                else {
+//                    completion(capturedImage, capturedImage != nil)
+//                    return
+//            }
+//
+//            switch representation {
+//            case .jpeg: // Not working
+//
+//                if let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer) {
+//                    let image = UIImage(data: imageData)
+//                    capturedImage = image
+//                }
+//
+//            case .png:
+//
+//                guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
+//                    else {
+//                        completion(capturedImage, capturedImage != nil)
+//                        return
+//                }
+//
+//                let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
+//                let context = CIContext(options: nil)
+//                let rect = CGRect(x: 0,
+//                                  y: 0,
+//                                  width: CVPixelBufferGetWidth(pixelBuffer),
+//                                  height: CVPixelBufferGetHeight(pixelBuffer))
+//                if let imageRef = context.createCGImage(ciImage, from: rect) {
+//                    let image = UIImage(cgImage: imageRef,
+//                                        scale: 1.0,
+//                                        orientation: .right)
+//                    capturedImage = image
+//                }
+//
+//            }
+//
+//            completion(capturedImage, capturedImage != nil)
+//
+//        }
+//
+//    }
     
     private func configureLivePreview(forDevicePositon position: AVCaptureDevice.Position) {
         self.configureInput(forPosition: position)
@@ -226,19 +227,27 @@ public class Camera: NSObject {
     private func configureOutput() {
         self.captureSession.beginConfiguration()
         
-        for currentOutput in self.captureSession.outputs {
-            if let output = currentOutput as? AVCaptureStillImageOutput {
-                self.captureSession.removeOutput(output)
-            }
-        }
+
         
-        self.stillImageOutput = AVCaptureStillImageOutput()
-        self.stillImageOutput?.outputSettings = [kCVPixelBufferPixelFormatTypeKey as String : kCVPixelFormatType_32BGRA]
-        print(self.stillImageOutput?.outputSettings)
+        self.stillImageOutput = AVCapturePhotoOutput()
         if self.captureSession.canAddOutput(self.stillImageOutput!) {
             self.captureSession.addOutput(self.stillImageOutput!)
         } else {
             print("> Error in taking photo")
+        }
+        let photoSettings : AVCapturePhotoSettings!
+        photoSettings = AVCapturePhotoSettings(rawPixelFormatType: kCVPixelFormatType_14Bayer_RGGB, processedFormat: [kCVPixelBufferPixelFormatTypeKey as String : kCVPixelFormatType_32BGRA])
+        //        self.stillImageOutput?.photoSettingsForSceneMonitoring = [kCVPixelBufferPixelFormatTypeKey as String : kCVPixelFormatType_32BGRA]
+//        self.stillImageOutput?.outputSettings = [kCVPixelBufferPixelFormatTypeKey as String : kCVPixelFormatType_32BGRA]
+//        if self.captureSession.canAddOutput(self.stillImageOutput!) {
+//            self.captureSession.addOutput(self.stillImageOutput!)
+//        } else {
+//            print("> Error in taking photo")
+//        }
+        for currentOutput in self.captureSession.outputs {
+            if let output = currentOutput as? AVCapturePhotoOutput {
+                self.captureSession.removeOutput(output)
+            }
         }
         self.captureSession.commitConfiguration()
     }
@@ -252,7 +261,6 @@ public class Camera: NSObject {
     private func setupAVCapture() {
         self.videoDataOutput.videoSettings =
             [kCVPixelBufferPixelFormatTypeKey as String : kCVPixelFormatType_32BGRA]
-        print(self.videoDataOutput.videoSettings)
         self.videoDataOutput.alwaysDiscardsLateVideoFrames = true
         self.videoDataOutputQueue = DispatchQueue(label: "VideoDataOutputQueue")
         self.videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
@@ -295,8 +303,7 @@ public class Camera: NSObject {
 
 extension Camera: AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    public func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        
+    public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         let attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault, sampleBuffer, kCMAttachmentMode_ShouldPropagate)
         
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
@@ -326,6 +333,7 @@ extension Camera: AVCaptureVideoDataOutputSampleBufferDelegate {
                                     cameraPosition: self.currentDevicePosition)
         }
     }
+
 }
 
 public enum PhotoRepresentation {
