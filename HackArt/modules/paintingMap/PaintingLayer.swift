@@ -195,7 +195,7 @@ class PaintingLayer: BasicLayer {
     guard let bgSize: CGSize = painting.background?.size else {
       return bounds
     }
-    let imgSize: CGSize 
+    let imgSize: CGSize
     
     
     return bounds
