@@ -43,7 +43,7 @@ struct OriginPainting {
             identifier: "swiniak"
             ),
           OriginPainting(
-            painting: Painting(name: "przepiorki", image: #imageLiteral(resourceName: "przepiorki")),
+            painting: Painting(name: "przepiorki", image: #imageLiteral(resourceName: "przepiorki"), backgroundIamge: randBird()),
             title: "Kuropatwy na śniegu",
             author: "Chełmoński, Józef",
             tags: [Tag.przepiorka],

@@ -14,6 +14,10 @@ class PaintingView: BasicView {
   
   weak var delegate: PaintingViewDelegate?
   
+  var painting: Painting! {
+    return paintingLayer.painting
+  }
+  
   var isBackgroundHidden: Bool {
     get { return paintingLayer.isBackgroundHidden }
     set { paintingLayer.isBackgroundHidden = newValue }

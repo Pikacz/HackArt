@@ -14,6 +14,10 @@ class PaintingViewScroll: BasicScrollView, UIScrollViewDelegate {
     set { paintingView.isBackgroundHidden = newValue }
   }
   
+  var painting: Painting! {
+    return paintingView.painting
+  }
+  
   override func initialize() {
     super.initialize()
     

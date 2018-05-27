@@ -58,7 +58,7 @@ class PaintingLayer: BasicLayer {
   }
   
   
-  private var painting: Painting! {
+  private(set) var painting: Painting! {
     didSet {
       var highlight: [Int: CAShapeLayer] = [:]
       for (id, path) in painting.highlightPaths {
@@ -224,7 +224,7 @@ class PaintingLayer: BasicLayer {
 //    let imgOrigin: CGPoint = imageLayer.frame.origin
     
     let scaleX: CGFloat = imgSize.width / bgSize.width
-    let scaleY: CGFloat = imgSize.height / bgSize.width
+    let scaleY: CGFloat = imgSize.height / bgSize.height
     
     var size: CGSize
     if scaleX < scaleY {

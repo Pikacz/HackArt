@@ -251,7 +251,8 @@ class HomeViewController: BasicViewController, PaintingViewDelegate {
       default: break
       }
       
-      showOkAlert(message: msg) {
+      
+      showOkAlert(title: view.painting.data[index]?.title, message: view.painting.data[index]?.text) {
         (_: UIAlertAction) in
         self.paintingView?.set(id: index, hidden: true)
       }
