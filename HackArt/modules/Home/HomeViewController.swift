@@ -236,7 +236,7 @@ extension HomeViewController: CameraViewControllerFlow {
     func didFound(tag: Tag) {
         self.navigationController?.popViewController(animated: true)
         guard let painting = paintings.first(where: { $0.tags.contains(tag) }) else { return }
-        paintingView.display(painting: painting.painting)
+        set(painting: painting)
     }
     
 }
